@@ -24,6 +24,7 @@ export default function Slider(props) {
         };
       }, [currentSlide]);
       
+      
 
     return (
         <div className='w-full flex  items-center justify-center'>
