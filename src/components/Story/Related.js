@@ -4,7 +4,7 @@ import picone from '../../related img/boxing.png'
 import picthree from '../../related img/plant.png'
 export default function Related() {
     return (
-        <div className='w-full mt-6 flex flex-col item-center'>
+        <div className='w-full mt-10 flex flex-col item-center'>
 
             <section className='w-full text-lg  font-medium border-l-2 border-[#FD9005] px-2'>
                       Related Posts
@@ -13,7 +13,7 @@ export default function Related() {
 
                <ul className='w-full flex flex-col items-center'>
 
-                <li className='w-full flex flex-row items-center mt-3'>
+                <li className='w-full flex flex-row items-center mt-10'>
                       <span className='w-1/3'>
                        <img src={pic} className='w-24 h-full rounded-sm'/>
                       </span>
@@ -29,7 +29,7 @@ export default function Related() {
                 </li>
 
 
-                <li className='w-full flex flex-row items-center mt-3'>
+                <li className='w-full flex flex-row items-center mt-6'>
                       <span className='w-1/3'>
                        <img src={picone} className='w-24 h-full rounded-sm'/>
                       </span>
@@ -45,7 +45,7 @@ export default function Related() {
                 </li>
 
 
-                <li className='w-full flex flex-row items-center mt-3'>
+                <li className='w-full flex flex-row items-center mt-6'>
                       <span className='w-1/3'>
                        <img src={picthree} className='w-24 h-full rounded-sm'/>
                       </span>
