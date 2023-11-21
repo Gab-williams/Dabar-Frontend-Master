@@ -13,6 +13,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBookmark } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import userpic from "../../images/userprofile.png";
+
 export default function Header(props) {
   const { sunmoon, handleSun, handleMoon } = props;
   // Add a state to handle the visibility of the categories dropdown
