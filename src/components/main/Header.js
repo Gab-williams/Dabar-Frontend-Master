@@ -15,6 +15,14 @@ import { Link } from "react-router-dom";
 import userpic from "../../images/userprofile.png";
 export default function Header(props) {
   const { sunmoon, handleSun, handleMoon } = props;
+  // Add a state to handle the visibility of the categories dropdown
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+
+  // Function to toggle the visibility of the categories dropdown
+  const handleCategoriesToggle = () => {
+    setIsCategoriesOpen(!isCategoriesOpen);
+  };
+
   const [ispages, setisPage] = useState(false);
   const handleisPage = () => {
     if (!ispages) {
@@ -55,13 +63,48 @@ export default function Header(props) {
             <span className="w-3/4">
               <ul className="w-full flex flex-row items-center  space-x-4">
                 <li>
-                  <span className="flex flex-row space-x-1">
-                    <a className=" font-normal capitalize text-base">
-                      Catagories
+                  <span className="flex flex-row space-x-1 relative">
+                    <a
+                      onClick={handleCategoriesToggle}
+                      className=" font-normal capitalize text-base"
+                    >
+                      Categories
                     </a>
-                    <a className="grid place-content-center">
+                    <a
+                      onClick={handleCategoriesToggle}
+                      className="grid place-content-center"
+                    >
                       <MdKeyboardArrowDown className="text-base" />
                     </a>
+                    <ul
+                      className={
+                        isCategoriesOpen
+                          ? "w-36 rounded-sm bg-white top-7 absolute flex flex-col items-center ease-in-out duration-300 shadow-md z-20"
+                          : "h-0 hidden ease-in-out duration-300 z-0"
+                      }
+                    >
+                       <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Business Insights</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Technology Trends</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Marketing & Finance</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Workplace & Culture</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Productivity & Innovation</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Multimedia & Events</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="">Opinions & Editorials</Link>{" "}
+                      </li>
+                    </ul>
                   </span>
                 </li>
                 <li>

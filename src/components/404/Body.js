@@ -9,7 +9,7 @@ export default function Body() {
                               <FaSadTear className='text-4xl'/>
                 </span>
                 <span className='w-full flex justify-center items-center text-center text-3xl sm:text-3xl md:text-3xl lg:text-5xl capitalize font-semibold  mt-3'>
-                Ooups, page not found
+                Sorry, page not found
                 </span>
                 <span className='w-11/12 sm:w-11/12 md:w-11/12 lg:w-1/2 m-auto mt-3 text-sm flex justify-center text-center font-medium'>
                 we are very sorry for the inconvenience it looks like 
