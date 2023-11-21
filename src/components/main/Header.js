@@ -160,7 +160,7 @@ export default function Header(props) {
 
 
               {/* small screen */}
-               <div className='w-10/12 m-auto sm:w-10/12 sm:m-auto md:hidden lg:hidden'>
+               <div className='w-10/12 m-auto mt-4 sm:w-10/12 sm:m-auto md:hidden lg:hidden'>
                  <section className='w-full flex flex-row items-center justify-between'>
                  <span className='w-35'>
                          <img src={!sunmoon?logo:logotwo} className='h-10 w-30' />
