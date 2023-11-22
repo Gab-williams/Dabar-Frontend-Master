@@ -3,14 +3,14 @@ import pic from '../../related img/afro.png'
 import picone from '../../related img/boxing.png'
 export default function Adds() {
     return (
-        <div className='w-full mt-3'>
+        <div className='w-full mt-20'>
              <section className='w-full text-lg  font-medium border-l-2 border-[#FD9005] px-2'>
                       Adds
             </section>
 
             <ul className='w-full  flex flex-col sm:flex sm:flex-col md:flex md:flex-col lg:flex lg:flex-row items-center justify-between'>
 
-                <li className='w-full flex flex-row items-center mt-3'>
+                <li className='w-full flex flex-row items-center mt-10'>
                       <span className='w-1/3'>
                        <img src={pic} className='w-24 h-full rounded-sm'/>
                       </span>
@@ -26,7 +26,7 @@ export default function Adds() {
                 </li>
 
 
-                <li className='w-full flex flex-row items-center mt-3'>
+                <li className='w-full flex flex-row items-center mt-10 ml-6'>
                       <span className='w-1/3'>
                        <img src={picone} className='w-24 h-full rounded-sm'/>
                       </span>

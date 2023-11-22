@@ -10,12 +10,11 @@ export default function Storypart() {
     return (
         <div className='w-full flex flex-col items-center justify-center'>
             
-            <section className='w-9/12 mt-14'>
+            <section className='w-9/12 mt-14 mb-20'>
                 <div className='w-full flex flex-col  justify-between sm:w-full sm:flex sm:flex-col   md:w-full md:flex md:flex-col  lg:w-full lg:flex lg:flex-row  lg:justify-between '>
                     <section className='w-full sm:w-full md:w-full lg:w-3/5'>
                           <Keypoint/>
                           <Body/>
-                          <Comment/>
                           <Adds/>
                     </section>
 
