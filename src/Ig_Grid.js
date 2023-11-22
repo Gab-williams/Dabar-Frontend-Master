@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import Header from './components/main/Header'
 import Body from './components/Ig_Grid/Body'
 import MobileNav from './components/Home/MobileNav'
+import Footer from './components/main/Foooter'
 
 export default function Ig_Grid() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -28,6 +29,7 @@ export default function Ig_Grid() {
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
             <MobileNav/>
              <Body/>
+             <Footer/>
         </div>
     )
 }
