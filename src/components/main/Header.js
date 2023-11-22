@@ -44,12 +44,12 @@ export default function Header(props) {
                          <ul className='w-full flex flex-row items-center  space-x-4'>
                               <li>
                                 <span className='flex flex-row space-x-1'>
-                                <a className=' font-normal capitalize text-base'>Catagories</a><a className='grid place-content-center'><MdKeyboardArrowDown className='text-base'/></a>
+                                <a className=' font-normal capitalize text-sm'>Catagories</a><a className='grid place-content-center'><MdKeyboardArrowDown className='text-base'/></a>
                                 </span>
                                 </li>
                               <li>
                               <span className='flex flex-row space-x-1 relative'>
-                                <a onClick={()=>handleisPage()} className=' font-normal capitalize text-base cursor-pointer'>Pages</a><a onClick={()=>handleisPage()}  className='grid place-content-center'><MdKeyboardArrowDown className='text-base'/></a>
+                                <a onClick={()=>handleisPage()} className=' font-normal capitalize text-sm cursor-pointer'>Pages</a><a onClick={()=>handleisPage()}  className='grid place-content-center'><MdKeyboardArrowDown className='text-base'/></a>
 
                                 <ul className={ispages?'w-36 rounded-sm bg-white top-7 absolute flex flex-col items-center ease-in-out duration-300  shadow-md z-20':'h-0 hidden ease-in-out duration-300 z-0'} >
                                   <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/">Home</Link> </li>
@@ -66,12 +66,12 @@ export default function Header(props) {
                               </li>
                               <li>
                               <span className='flex flex-row space-x-1'>
-                                <a className=' font-normal capitalize text-base'>Contact us</a>
+                                <a className=' font-normal capitalize text-sm'>Contact us</a>
                                 </span>
                               </li>
                               <li>
                               <span className='flex flex-row space-x-1'>
-                                <a className=' font-normal capitalize text-base'>About us</a>
+                                <a className=' font-normal capitalize text-sm'>About us</a>
                                 </span>
                               </li>
                          </ul>
