@@ -1,13 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import Header from './components/main/Header'
-import Top from './components/CategoryList/Top'
-import Body from './components/CategoryList/Body'
-import Footer from './components/main/Foooter'
+import Body from './components/Ig_Grid/Body'
 import MobileNav from './components/Home/MobileNav'
-import Category from './components/Home/Category'
 
-export default function CategoryList() {
-
+export default function Ig_Grid() {
     const [sunmoon, setSunMoon] = useState(false)
 
     // const handleMoon =(e)=>{
@@ -28,13 +24,10 @@ export default function CategoryList() {
         }
     }
     return (
-        <div>
+        <div className='w-full'>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
-            <Top/>
-            <Category/>
             <MobileNav/>
-            <Body/>
-           <Footer/> 
+             <Body/>
         </div>
     )
 }
