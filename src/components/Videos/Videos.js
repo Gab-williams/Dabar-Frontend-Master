@@ -51,7 +51,7 @@ export default function Videos() {
                 </section>
 
                 <section className='w-11/12 sm:w-11/12 md:w-11/12 lg:w-10/12  '>
-                    <div className='w-full grid grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center space-x-4 gap-5 mt-5'>
+                    <div className='w-full grid grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center  gap-5 mt-5'>
                         {arr.map((item, index)=>{
                               return  <article key={index} className='w-40 sm:w-40 md:w-40 lg:w-72'>
                               <img src={item.image} className='w-full h-52 sm:h-52 md:h-52 lg:h-52' />
