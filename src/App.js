@@ -7,7 +7,8 @@ import Team from "./Team.js";
 import Category from "./Category.js";
 import { Route, Routes } from "react-router-dom";
 import CategoryList from "./CategoryList.js";
-import Ig_Grid from "./components/Ig_Grid.js";
+import Ig_Grid from "./Ig_Grid.js";
+// import "./App.css"
 function App() {
   return (
     <div>
