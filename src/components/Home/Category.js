@@ -56,7 +56,7 @@ export default function Category({ sunmoon }) {
                   sm:text-xs sm:w-60 sm:px-2 sm:py-2
                   md:text-sm md:w-10/12
                   lg:text-base lg:w-10/12 capitalize font-medium ${
-                    sunmoon ? 'text-white' : 'text-black'
+                    sunmoon ? 'text-white text-sm' : 'text-black text-sm'
                   }`}
                   key={index}
                 >
