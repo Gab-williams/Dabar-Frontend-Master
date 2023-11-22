@@ -7,6 +7,7 @@ import Team from "./Team.js";
 import Category from "./Category.js";
 import { Route, Routes } from "react-router-dom";
 import CategoryList from "./CategoryList.js";
+import Ig_Grid from "./components/Ig_Grid.js";
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/team" element={<Team/>} />
       <Route path="/video-category" element={<Category/>} />
       <Route path="/category-list" element={<CategoryList/>} />
+      <Route path="/ig_grid" element={<Ig_Grid/>} />
       <Route path="*" element={<Error/>} />
       </Routes>
     </div>

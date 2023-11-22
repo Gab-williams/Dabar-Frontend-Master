@@ -57,6 +57,9 @@ export default function Header(props) {
                                   <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/about us">about us</Link></li>
                                   <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/team">team</Link></li>
                                   <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/video-category">video category</Link></li>
+                                  <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/category-list">category list</Link></li>
+                                  {/* Ig-Grid */}
+                                  <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/ig_grid">ig grid</Link></li>
                                   <li className='w-full p-1 text-sm text-left font-medium capitalize text-black'><Link to="/contact us">contact us</Link></li>
                                 </ul>
                                 </span>
