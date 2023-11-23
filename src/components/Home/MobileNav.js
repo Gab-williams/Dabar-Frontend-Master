@@ -65,7 +65,7 @@ export default function MobileNav() {
         } sm:w-full sm:text-lg sm:flex sm:items-center sm:justify-center sm:text-black sm:fixed sm:z-30 sm:bottom-0 md:w-full md:text-lg md:flex md:items-center md:justify-center md:text-black md:fixed md:z-30 md:bottom-0 lg:hidden`}
       >
         {/* change this on your code w-11/12 to w-full py-3 */}
-        <section className="w-full bg-white py-3 px-2 flex flex-row items-center">
+        <section className="w-full bg-black py-3 px-2 flex flex-row items-center">
            {/* change this on your code w-11/12 to w-full py-3 */}
           <div className="w-1/4">
             <button className="bg-[#FD9005] rounded-md h-full w-full flex flex-row items-center px-2 py-2">
@@ -77,13 +77,13 @@ export default function MobileNav() {
             <article className="w-full">
               <div className="w-11/12 flex flex-row items-center justify-between float-right">
                 <button className="w-24 h-full" onClick={() => setIsMenu(true)}>
-                  <AiOutlineMenuUnfold onClick={() => setIsMenu(true)} className="text-black text-lg" />
+                  <AiOutlineMenuUnfold onClick={() => setIsMenu(true)} className="text-white text-lg" />
                 </button>
                 <button className="w-24 h-full">
-                  <FaRegUser className="text-black text-lg" />
+                  <FaRegUser className="text-white text-lg" />
                 </button>
                 <button className="w-24 h-full">
-                  <MdKeyboardDoubleArrowUp className="text-black text-lg" />
+                  <MdKeyboardDoubleArrowUp className="text-white text-lg" />
                 </button>
               </div>
             </article>
