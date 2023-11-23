@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { IoIosHome } from 'react-icons/io';
-import { FaRegUser } from 'react-icons/fa';
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
-import { MdKeyboardDoubleArrowUp } from 'react-icons/md';
+import { RiContactsFill } from "react-icons/ri";
+import { RiHome6Fill } from "react-icons/ri";
+import { FaSearch } from "react-icons/fa";
+import { TbCategoryFilled } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 
 export default function MobileNav() {
@@ -68,26 +68,27 @@ export default function MobileNav() {
         <section className="w-full bg-black py-3 px-2 flex flex-row items-center">
            {/* change this on your code w-11/12 to w-full py-3 */}
           <div className="w-1/4">
-            <button className="bg-[#FD9005] rounded-md h-full w-full flex flex-row items-center px-2 py-2">
-              <IoIosHome className="text-white" />
+            <button className="h-full w-full flex flex-row items-center px-2 py-2">
+              <RiHome6Fill className="text-white mr-2" />
               <span className="text-xs capitalize text-white">home</span>
             </button>
           </div>
-          <section className="w-3/4">
-            <article className="w-full">
+          
               <div className="w-11/12 flex flex-row items-center justify-between float-right">
-                <button className="w-24 h-full" onClick={() => setIsMenu(true)}>
-                  <AiOutlineMenuUnfold onClick={() => setIsMenu(true)} className="text-white text-lg" />
+                <button className="w-24 m-2 h-full w-full flex flex-row items-center px-2 py-2" onClick={() => setIsMenu(true)}>
+                  <TbCategoryFilled onClick={() => setIsMenu(true)} className="text-white mr-2" />
+                  <span className="text-xs capitalize text-white">Category</span>
                 </button>
-                <button className="w-24 h-full">
-                  <FaRegUser className="text-white text-lg" />
-                </button>
-                <button className="w-24 h-full">
-                  <MdKeyboardDoubleArrowUp className="text-white text-lg" />
+                <button className="m-2 h-full w-full flex flex-row items-center px-2 py-2">
+              <FaSearch className="text-white mr-2" />
+              <span className="text-xs capitalize text-white">Search</span>
+            </button>
+                <button className="w-24 m-2 h-full w-full flex flex-row items-center px-2 py-2">
+                  <RiContactsFill className="text-white mr-2" />
+                  <span className="text-xs capitalize text-white">Contact</span>
                 </button>
               </div>
-            </article>
-          </section>
+           
         </section>
       </div>
     </article>
