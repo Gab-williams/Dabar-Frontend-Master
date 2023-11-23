@@ -15,16 +15,16 @@ export default function Slider(props) {
           if (carouselRef.current) {
             const totalSlides = carouselRef.current.props.children.length;
             const nextSlide = (currentSlide + 1) % totalSlides;
-    
+            console.log(nextSlide)
             carouselRef.current.goTo(nextSlide);
             setCurrentSlide(nextSlide);
           }
-        }, 3000);
+        }, 2000);
     
         return () => {
           clearInterval(intervalId);
         };
-      }, [currentSlide]);
+      }, [currentSlide, carouselRef]);
 
 
 
@@ -106,9 +106,9 @@ export default function Slider(props) {
              {/* large screen  */}
 
 
-
+                      {/*ref={carouselRef} onSlideChange={currentSlide => setCurrentSlide(currentSlide)}  */}
              <article className={!sunmoon?'w-full mt-10 border-b border-black p-6  sm:w-full sm:mt-10 sm:border-b sm:border-gray sm:p-6  md:w-full md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden':'w-full mt-10 border-b border-white p-6 sm:w-11/12 sm:mt-10 sm:border-g sm:border-white sm:p-6 md:w-11/12 md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'} >
-                <Carousel ref={carouselRef} onSlideChange={currentSlide => setCurrentSlide(currentSlide)} showArrows={false} pagination={false} itemsToShow={1.5}  itemsToScroll={1} spaceBetween={10} className='w-full '>
+                <Carousel  showArrows={false} pagination={false} itemsToShow={1.5}  itemsToScroll={1} spaceBetween={10} className='w-full '>
                      <div className='w-[97%]  h-96  rounded-md grid place-content-center text-2xl text-black relative'>
                            <img src={imgtwo} className='w-full h-full' />
                            <article className='w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 '>
