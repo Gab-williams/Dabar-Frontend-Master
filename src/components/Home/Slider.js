@@ -3,7 +3,7 @@ import React,{useRef, useEffect, useState} from 'react';
 import Carousel from 'react-elastic-carousel';
 import imgtwo from '../../images/multiethnic.png';
 export default function Slider(props) {
-    const {sunmoon, topstories, client} = props
+    const {sunmoon, topstories, client, handleClick} = props
      
     const carouselRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +15,7 @@ export default function Slider(props) {
           if (carouselRef.current) {
             const totalSlides = carouselRef.current.props.children.length;
             const nextSlide = (currentSlide + 1) % totalSlides;
-            console.log(nextSlide)
+           // console.log(nextSlide)
             carouselRef.current.goTo(nextSlide);
             setCurrentSlide(nextSlide);
           }
@@ -33,13 +33,16 @@ export default function Slider(props) {
     const fetchData = async () => {
       const newData = await Promise.all(
         topstories.map(async (item) => {
+           //console.log(item.fields.storyId.fields.thumbnail.fields.file.url)
           let data = await client.getEntry(item.fields.storyId.fields.subCategoriesId.sys.id);
           let answer = data.fields.name;
 
           return {
             heading: item.fields.storyId.fields.heading,
             summary: item.fields.storyId.fields.summary,
+            thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
             subcategories: answer,
+            id:item.sys.id
           };
         })
       );
@@ -71,8 +74,8 @@ export default function Slider(props) {
                      {alldata.length > 0? alldata?.map(   (item, index)=>{
                          
                 
-                        return   <div className='w-[97%]  h-100  rounded-md grid place-content-center text-2xl text-black relative' key={index}>
-                        <img src={imgtwo} className='w-full h-full' />
+                        return   <div className='w-[97%]  h-100  rounded-md grid place-content-center text-2xl text-black relative' key={index} onClick={()=>handleClick(item.id)}>
+                        <img src={item.thumbnail} className='w-full h-full' />
                         <article className='w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 '>
                          <div className='w-full mt-6 ml-4'>
                          <button className='w-20  text-xs float-left rounded-sm font-medium capitalize bg-[#FD9005] text-white'>{item.subcategories}</button>
@@ -85,7 +88,7 @@ export default function Slider(props) {
                                  <a className='text-xs font-medium'>-</a>
                                  <a className='text-xs font-medium'>27 Dec 2023</a>
                              </article>
-                             <section className='w-4/5 text-lg  text-white font-semibold capitalize'>
+                             <section className='w-4/5 text-lg  text-white font-semibold capitalize' onClick={()=>handleClick(item.id)}>
                                  {item.heading}
                              </section>
                          </div>

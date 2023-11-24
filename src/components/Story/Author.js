@@ -3,7 +3,8 @@ import person from "../../images/Ellipse 169.png";
 import {SiDocsdotrs} from 'react-icons/si';
 import {FaBehance, FaEllipsisH} from 'react-icons/fa';
 import {AiFillGithub} from 'react-icons/ai'
-export default function Author() {
+export default function Author(props) {
+    const {writer} = props
     return (
         <div className='w-full  flex flex-col items-center bg-gray-300 rounded-sm mt-9 sm:mt-5 md:mt-5 lg:mt-0'>
            <span className='w-full mt-2 text-center capitalize font-medium'>
@@ -11,7 +12,7 @@ export default function Author() {
             </span> 
             
             <span className='w-full mt-4 text-center capitalize font-medium'>
-              Luci Avetisyan
+              {Object.keys(writer)?writer.name:""}
             </span>
 
             <span className='w-40 w-40 rounded-full mt-5'>

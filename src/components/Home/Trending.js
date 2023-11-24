@@ -9,7 +9,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
  import picseven from "../../images/computer.png";
 // import piceight from "../../images/phone.png";
 export default function Trending(props) {
-  const { sunmoon, tendall, client } = props;
+  const { sunmoon, tendall, client, handleClick } = props;
 
 
  
@@ -29,7 +29,9 @@ export default function Trending(props) {
               heading: item.fields.storyId.fields.heading,
               summary: item.fields.storyId.fields.summary,
               category: answer,
-              writer:answriter
+              writer:answriter,
+              thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
+              id:item.sys.id
             };
           })
         );
@@ -158,11 +160,11 @@ export default function Trending(props) {
           {alldata.map((item) => {
             return (
               <section
-                className="m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64" key={item.id}>
+                className="m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64" onClick={()=>handleClick(item.id)} key={item.id}>
                 <div className=" w-full flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
                   <section className="   w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                     <img
-                      src={picseven}
+                      src={item.thumbnail}
                       className="w-full h-24 sm:h-24 md:h-32 lg:h-40"
                     />
                     <article className="w-full absolute top-0 left-0 right-0 bottom-0 bg-cover bg-black bg-opacity-10">
@@ -180,7 +182,7 @@ export default function Trending(props) {
 
                     </div>
 
-                    <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize  ">
+                    <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize" onClick={()=>handleClick(item.id)}>
                       {item.heading}
                     </section>
 
