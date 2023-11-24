@@ -143,8 +143,8 @@ export default function Trending(props) {
     >
       <section className="w-11/12 mt-10">
         <div className="w-full flex flex-row items-center justify-between px-2 space-x-2">
-          <button className="capitalize font-normal border-l-4 border-[#FD9005] text-sm px-2 hidden md:inline">
-            Trending
+          <button className="capitalize font-normal text-xl text-sm px-2 hidden md:inline">
+            Trending Topics
           </button>
 
           <button className="hidden sm:hidden md:capitalize md:font-normal  md:bg-gray-300 md:flex md:flex-row md:items-center md:space-x-1 md:text-sm md:px-1 md:py-1 md:rounded-sm lg:capitalize lg:font-normal  lg:bg-gray-100 lg:flex lg:flex-row lg:items-center lg:text-black lg:space-x-1 lg:text-xs lg:pl-4 lg:px-2 lg:py-2 lg:rounded-md">
