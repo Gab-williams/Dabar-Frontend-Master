@@ -47,8 +47,11 @@ export default function Header(props) {
                 {/* logo and links */}
                  <section className='w-1/2'>
                    <div className='w-full flex flex-row items-center justify-between'>
+                    
                        <span className='w-1/5  '>
+                       <Link to="/">
                          <img src={!sunmoon?logo:logotwo} className='w-full h-full' />
+                         </Link>
                        </span>
 
                        <span className='w-3/4'>
@@ -77,12 +80,12 @@ export default function Header(props) {
                               </li>
                               <li>
                               <span className='flex flex-row space-x-1'>
-                                <a className=' font-normal capitalize text-base'>Contact us</a>
+                                <a className=' font-normal capitalize text-base'><Link to="/contact us">Contact us</Link></a>
                                 </span>
                               </li>
                               <li>
                               <span className='flex flex-row space-x-1'>
-                                <a className=' font-normal capitalize text-base'>About us</a>
+                                <a className=' font-normal capitalize text-base'><Link to="/about us">About us</Link></a>
                                 </span>
                               </li>
                          </ul>
