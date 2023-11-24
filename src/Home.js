@@ -13,6 +13,7 @@ import Finance from './components/Home/Finance';
 import Foooter from './components/main/Foooter';
 import Category from './components/Home/Category';
 import MobileNav from './components/Home/MobileNav';
+import { useNavigate } from 'react-router-dom';
 import { context } from './Context';
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
     const [financeall, setfinanceall] = useState([])
     const created = useContext(context);
     let {client} = created
- 
+    const navigate = useNavigate();
     
     const handleSun =(e)=>{
         if(!sunmoon){
@@ -38,7 +39,10 @@ export default function Home() {
         document.body.style = 'background:white;';
         }
     }
-
+    
+    const handleClick = (id)=>{
+      navigate(`/story/${id}`);
+    }
     useEffect(()=>{
         const steve = async ()=>{
            try {
@@ -108,17 +112,17 @@ export default function Home() {
     return (
         <div className={!sunmoon?'text-black':'text-white'}>
              <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun} />
-             <Slider topstories={topstories} client={client} sunmoon={sunmoon}/>
+             <Slider topstories={topstories} client={client} sunmoon={sunmoon} handleClick={handleClick}/>
              <Category/>
-             <Feature client={client} featurestories={featurestories}/>
-             <Trending sunmoon={sunmoon} tendall={tendall} client={client}/>
+             <Feature client={client} featurestories={featurestories} handleClick={handleClick}/>
+             <Trending sunmoon={sunmoon} tendall={tendall} client={client} handleClick={handleClick}/>
              <MobileNav/>
              <Latest/>
-             <Editors editorall={editorall} client={client}/>
+             <Editors editorall={editorall} client={client} handleClick={handleClick}/>
              <Ash/>
-             <Recent newstroriesall={newstroriesall} client={client}/>
+             <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick}/>
              <Report/>
-             <Finance financeall={financeall} client={client}/>
+             <Finance financeall={financeall} client={client} handleClick={handleClick}/>
              <Foooter/>
         </div>
     )

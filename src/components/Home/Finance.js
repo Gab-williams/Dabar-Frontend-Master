@@ -6,7 +6,7 @@ import picseven from '../../images/computer.png';
 import piceight from '../../images/phone.png';
 
 export default function Finance(props) {
-    const {  financeall, client } = props;
+    const {  financeall, client, handleClick } = props;
 //      const finance = [        {
 //         id:5,
 //         catgories:'Health & Fitness',
@@ -69,8 +69,10 @@ useEffect(()=>{
           return {
             heading: item.fields.storyId.fields.heading,
             summary: item.fields.storyId.fields.summary,
+            thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
             category: answer,
-            writer:answriter
+            writer:answriter,
+            id:item.sys.id
           };
         })
       );
@@ -98,11 +100,11 @@ useEffect(()=>{
             <article className='w-full grid grid-cols-1 gap-9 place-content-center sm:w-full sm:grid sm:grid-cols-1 sm:gap-9  sm:place-content-between  md:w-full md:grid md:grid-cols-1 md:gap-3 md:space-x-4 md:place-content-center lg:w-full lg:grid lg:grid-cols-4 lg:gap-y-14 lg:space-x-4 lg:place-content-center'>
                   {alldata.map((item, index)=>{
 
-                    return  <section className='m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64' key={index}>
+                    return  <section className='m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64' key={index} onClick={()=>handleClick(item.id)}>
                    <div className=" w-full flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
                   <section className="   w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                   <img
-                      src={picsix}
+                      src={item.thumbnail}
                       className="w-full h-24 sm:h-24 md:h-32 lg:h-40"
                     />
                             <article className='w-full absolute top-0 left-0 right-0 bottom-0 bg-cover bg-black bg-opacity-10'>
@@ -121,8 +123,8 @@ useEffect(()=>{
                            <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>1 jan 2023</a></span>
                        </div>
 
-                       <section className='w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize'>
-                       {item.heading.length >= 70?item.heading.substr(0,100)+"...":item.heading}
+                       <section className='w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize' onClick={()=>handleClick(item.id)}>
+                       {item.heading.length >= 70?item.heading.substr(0, 70)+"...":item.heading}
                        </section>
 
                        <article className='text-xs mt-1 hidden sm:block md:hidden lg:block lg:text-xs lg:mt-3 w-full text-left capitalize text-gray-500'>
