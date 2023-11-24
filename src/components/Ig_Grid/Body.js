@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import img from "../../ig_pic/woman_with_atm.png";
 import imgone from "../../ig_pic/blackguy.png";
 import imgtwo from "../../ig_pic/blackcar.png";
@@ -7,58 +8,72 @@ import imgfour from "../../ig_pic/phone.png";
 import imgfive from "../../ig_pic/food.png";
 import imgsix from "../../ig_pic/protest.png";
 import imgeight from "../../ig_pic/Video.png";
-import imgseven from "../../ig_pic/robot.png"
+import imgseven from "../../ig_pic/robot.png";
+import "../../App.css";
+
 export default function Body() {
+  const arr = [
+    { image: img, title: 'Image 1' },
+    { image: imgone, title: 'Image 2' },
+    { image: imgtwo, title: 'Image 3' },
+    { image: imgthree, title: 'Image 4' },
+    { image: imgfour, title: 'Image 5' },
+    { image: imgfive, title: 'Image 6' },
+    { image: imgsix, title: 'Image 7' },
+    { image: imgseven, title: 'Image 8' },
+    { image: imgeight, title: 'Image 9' },
+    { image: imgsix, title: 'Image 10' },
+    { image: imgseven, title: 'Image 11' },
+    { image: imgeight, title: 'Image 12' },
+    { image: imgsix, title: 'Image 13' },
+    { image: imgseven, title: 'Image 14' },
+    { image: imgeight, title: 'Image 15' },
+  ];
 
-    const arr = [
-        {
-            image:img,
-        },
-        {
-            image:imgone,
-        },
-        {
-            image:imgtwo,
-        },
-        {
-            image:imgthree,
-        },
-        {
-            image:imgfour
-        },
-        {
-            image:imgfive
-        },
-        {
-            image:imgsix
-        },
-        {
-            image:imgseven
-        },
-        {
-            image:imgeight
-        },
-       
-        
-    ]
-    return (
-        <div className='w-full'>
+  const [hoveredItem, setHoveredItem] = useState(null);
 
-            <section className='w-10/12 text-lg sm:w-10/12 sm:text-base md:w-10/12 md:text-lg lg:w-1/3 lg:text-2xl m-auto capitalize font-semibold text-center  mt-6'>
-                  the dabar instagram
-            </section>
+  const handleItemHover = (index) => {
+    setHoveredItem(index);
+  };
 
-            <section className='w-11/12 m-auto'>
-            <div className='w-full grid grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center  gap-5 mt-5'>
-                        {arr.map((item, index)=>{
-                              return  <article key={index} className='w-40 sm:w-40 md:w-40 lg:w-72'>
-                              <img src={item.image} className='w-full h-52 sm:h-52 md:h-52 lg:h-60' />
-                            </article>
-                        })}
-                      
-                    </div>
-            </section>
-            
+  const handleItemLeave = () => {
+    setHoveredItem(null);
+  };
+
+  return (
+    <div className='w-full'>
+      <section className='w-10/12 text-black text-lg sm:w-10/12 sm:text-base md:w-10/12 md:text-lg lg:w-1/3 lg:text-black lg:text-4xl m-auto capitalize font-semibold text-center mb-12 mt-12'>
+        the Dabar instagram
+      </section>
+
+      <section className='w-11/12 m-auto'>
+        <div className='w-full grid grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center  gap-2 mt-5'>
+          {arr.map((item, index) => (
+            <Link
+              key={index}
+              to={`/item/${index}`} // Adjust the path as needed
+              className={`w-40 sm:w-40 md:w-40 lg:w-auto ${hoveredItem === index ? 'hovered' : ''}`}
+            >
+              <div
+                className='image-container'
+                onMouseEnter={() => handleItemHover(index)}
+                onMouseLeave={handleItemLeave}
+              >
+                <img
+                  src={item.image}
+                  className='w-full h-52 sm:h-52 md:h-52 lg:h-auto'
+                  alt={item.title}
+                />
+                {hoveredItem === index && (
+                  <div className='tooltip'>
+                    <p>Learn More</p>
+                  </div>
+                )}
+              </div>
+            </Link>
+          ))}
         </div>
-    )
+      </section>
+    </div>
+  );
 }
