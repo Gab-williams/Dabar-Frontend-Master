@@ -166,19 +166,17 @@ export default function Trending(props) {
                       className="w-full h-24 sm:h-24 md:h-32 lg:h-40"
                     />
                     <article className="w-full absolute top-0 left-0 right-0 bottom-0 bg-cover bg-black bg-opacity-10">
-                      <div className="w-full mt-4 ml-3">
-                        <button className="px-2.5 py-1 font-medium capitalize text-white bg-[#FD9005] text-xs hidden sm:block md:block lg:block">
-                          {item.category}
-                        </button>
-                      </div>
+                     
                     </article>
                   </section>
 
                   <article className="w-10/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
-                    <div className="w-full mt-4">
-                    <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>1 jan 2023</a></span>
-
-                    </div>
+                  <div className="w-full mt-2">
+                        <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
+                          {item.category}
+                        </button>
+                      </div>
+                   
 
                     <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize  ">
                       {item.heading}
@@ -186,7 +184,11 @@ export default function Trending(props) {
 
                     <article className="text-xs mt-1 hidden sm:block md:hidden lg:block lg:text-xs lg:mt-3 w-full text-left capitalize text-gray-500">
                       {item.summary.length >= 100?item.summary.substr(0, 90):item.summary}
-                    </article>
+                    </article> 
+                    <div className="w-full mt-4">
+                    <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>1 jan 2023</a></span>
+
+                    </div>
                   </article>
                 </div>
               </section>
