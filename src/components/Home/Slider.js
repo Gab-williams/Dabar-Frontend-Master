@@ -33,9 +33,10 @@ export default function Slider(props) {
     const fetchData = async () => {
       const newData = await Promise.all(
         topstories.map(async (item) => {
-           //console.log(item.fields.storyId.fields.thumbnail.fields.file.url)
+           //console.log(item.fields.storyId.fields.thumbnail.fields.file.url.featuredImage)
           let data = await client.getEntry(item.fields.storyId.fields.subCategoriesId.sys.id);
           let answer = data.fields.name;
+       
 
           return {
             heading: item.fields.storyId.fields.heading,
@@ -70,20 +71,20 @@ export default function Slider(props) {
     return (
         <div className='w-full flex  items-center justify-center'>
      {/* large screen */}
-            <article className={!sunmoon?'hidden sm:hidden md:hidden lg:w-11/12 lg:mt-10 lg:p-6 lg:block':'hidden sm:hidden md:hidden lg:w-11/12 lg:mt-10 lg:p-6 lg:block'} >
+            <article className={!sunmoon?'hidden sm:hidden md:hidden lg:w-full lg:mt-10 lg:p-6 lg:block':'hidden sm:hidden md:hidden lg:w-full lg:mt-10 lg:p-6 lg:block'} >
                 <Carousel ref={carouselRef} onSlideChange={currentSlide => setCurrentSlide(currentSlide)} showArrows={false} pagination={false} itemsToShow={3}  itemsToScroll={1} spaceBetween={10} className='w-full '>
                      {alldata.length > 0? alldata?.map(   (item, index)=>{
                          
                 
-                        return   <div className='w-[97%]  h-100  rounded-md grid place-content-center text-2xl text-black relative' key={index} onClick={()=>handleClick(item.id)}>
-                        <img src={item.thumbnail} className='w-full h-full' />
+                        return   <div className='w-[97%]  h-10 h-screen rounded-md grid place-content-center text-2xl text-black relative' key={index} onClick={()=>handleClick(item.id)}>
+                        <img src={item.thumbnail} className='w-full h-screen object-cover' />
                         <article className='w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 '>
                          <div className='w-full mt-6 ml-4'>
-                         <button className='w-20  text-xs float-left rounded-sm font-medium capitalize bg-[#FD9005] text-white'>{item.subcategories}</button>
+                         <button className='w-50  text-xs float-left rounded-sm font-medium capitalize text-orange-500'>{item.subcategories}</button>
                         
                          </div>
 
-                         <div className='w-full flex flex-col ml-4 absolute bottom-8'>
+                         <div className='w-full flex flex-col ml-4 absolute bottom-8 drop-shadow-2xl'>
                              <article className='w-4/5 sm:w-4/5 md:w-2/3 lg:w-2/5 flex flex-row items-center space-x-1 text-white'>
                                  <a className='text-xs font-medium'>2 min</a>
                                  <a className='text-xs font-medium'>-</a>
