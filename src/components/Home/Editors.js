@@ -90,7 +90,7 @@ export default function Editors(props) {
   return (
     <div className="w-full flex flex-col items-center">
       <section className="w-11/12 mt-10">
-        <article className="w-full flex flex-row items-center justify-between mt-20">
+        <article className="w-full flex flex-row items-center justify-between mt-20 px-2 space-x-2 ">
           <span className="w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/6 ">
             <button className="capitalize font-normal text-xl text-sm px-2 hidden md:inline">
               Editors Pick
