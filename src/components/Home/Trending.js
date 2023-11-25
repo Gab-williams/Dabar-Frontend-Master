@@ -142,7 +142,7 @@ export default function Trending(props) {
       }
     >
       <section className="w-11/12 mt-10">
-        <div className="w-full flex flex-row items-center justify-between px-2 space-x-2">
+        <div className="w-full flex flex-row items-center justify-between px-2 space-x-2 ">
           <button className="capitalize font-normal text-xl text-sm px-2 hidden md:inline">
             Trending Topics
           </button>
@@ -162,14 +162,11 @@ export default function Trending(props) {
               <section
                 className="m-auto min-h-full w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-80" onClick={()=>handleClick(item.id)} key={item.id}>
                 <div className=" w-full flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
-                  <section className="   w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
+                  <section className="   w-56 relative sm:w-auto sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                     <img
                       src={item.thumbnail}
-                      className="w-full h-24 sm:h-24 md:h-32 lg:h-auto"
+                      className="w-full h-24 sm:h-auto md:h-32 lg:h-auto"
                     />
-                    <article className="w-full absolute top-0 left-0 right-0 bottom-0 bg-cover bg-black bg-opacity-10">
-                     
-                    </article>
                   </section>
 
                   <article className="w-10/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
