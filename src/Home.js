@@ -117,7 +117,7 @@ export default function Home() {
              <Feature client={client} featurestories={featurestories} handleClick={handleClick}/>
              <Trending sunmoon={sunmoon} tendall={tendall} client={client} handleClick={handleClick}/>
              <MobileNav/>
-             <Latest/>
+             
              <Editors editorall={editorall} client={client} handleClick={handleClick}/>
              <Ash/>
              <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick}/>
