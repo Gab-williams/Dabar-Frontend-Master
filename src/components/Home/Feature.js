@@ -1,7 +1,4 @@
 import React,{useRef, useEffect, useState} from 'react';
-import pixone from '../../images/02.png';
-import boxing from '../../images/boxing.png';
-import plant from '../../images/plant.png';
 export default function Feature(props) {
    const {client, featurestories, handleClick} = props
    const [alldata, setallData] = useState([])  
@@ -37,21 +34,22 @@ export default function Feature(props) {
    console.log(alldata)
     return (
         <div className='hidden sm:hidden md:w-full md:block lg:w-full lg:block'>
-              <section className='w-10/12  m-auto mt-3 p-6 border-t border-b border-gray'>
+              <section className='w-11/12 min-h-full m-auto mt-3 p-6 border-t border-b border-gray'>
                 <article className='w-full flex flex-row  justify-evenly'>
                    {alldata.map((item)=>{
                      return  <div className='w-1/4' onClick={()=>handleClick(item.id)}>
-                     <section className='w-full flex flex-row items-center space-x-1'>
-                        <span className='w-1/4'>
-                           <img src={item.thumbnail} className='w-[5rem] h-[4.2rem] rounded-full'/>
+                     <section className='w-full  flex flex-row items-center space-x-1'>
+                        <span className='w-2/5'>
+                           <img src={item.thumbnail} className='w-[6rem] h-[5.5rem] rounded-full'/>
                         </span>
-                        <div className='w-4/5 flex flex-col items-center'>
-                           <span className='w-full px-1'>
-                               <button className=' h-6 text-xs float-left  font-medium capitalize bg-[#FD9005] text-white'>{item.category}</button>
-                           </span>
+                        <div className='w-full flex flex-col items-center'>
+                           
                             <span className='w-full py-1 px-1 text-xs font-semibold capitalize text-left' onClick={()=>handleClick(item.id)}>
                               {item.heading}
                             </span>
+                            <span className='w-full px-1'>
+                               <button className=' h-6 text-xs float-left  font-medium capitalize text-orange-500'>{item.category}</button>
+                           </span>
                         </div>
                      </section>
                   </div>
