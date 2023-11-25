@@ -134,7 +134,7 @@ export default function Editors(props) {
                       </div>
 
                     <section
-                      className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 font-semibold text-left capitalize"
+                      className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 font-semibold text-left capitalize"
                       onClick={() => handleClick(item.id)}
                     >
                       {item.heading.length >= 70
