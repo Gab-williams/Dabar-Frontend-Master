@@ -1,153 +1,77 @@
-import React from 'react'
-import picone from "../../images/cell-phone-pink-background-shows-analytics-graphics-generative-ai_563818-6612 1.png";
-import pictwo from "../../images/people.png";
-import picthree from "../../images/car.png";
-import picfour from "../../images/robot.png";
-import picfive from "../../images/medical.png";
-import picsix from "../../images/Group 237606.png";
-import picseven from "../../images/computer.png";
-import piceight from "../../images/phone.png";
+import React,{useState, useEffect, useContext} from 'react'
+// import picone from "../../images/cell-phone-pink-background-shows-analytics-graphics-generative-ai_563818-6612 1.png";
+// import pictwo from "../../images/people.png";
+// import picthree from "../../images/car.png";
+// import picfour from "../../images/robot.png";
+// import picfive from "../../images/medical.png";
+// import picsix from "../../images/Group 237606.png";
+// import picseven from "../../images/computer.png";
+// import piceight from "../../images/phone.png";
 
-import picten from '../../images/medical.png';
-import piceleven from '../../images/Group 237606.png';
-import pictwelevn from '../../images/computer.png';
-import picthreeteen from '../../images/phone.png';
+// import picten from '../../images/medical.png';
+// import piceleven from '../../images/Group 237606.png';
+// import pictwelevn from '../../images/computer.png';
+// import picthreeteen from '../../images/phone.png';
+import { useNavigate } from 'react-router-dom';
+import { context } from '../../Context';
+
 
 export default function Body() {
+  const navigate = useNavigate();
+  const created = useContext(context);
+  let {client} = created
+  const [pageSize, setpageSize] = useState(12)
+  const [page, setpage] = useState(1)
+  const [data, setData] = useState([])
+  const recentstories = async()=>{
+    let newstories = await client.getEntries({content_type:'currentstories',  select:'fields'})
 
-    const arr = [
-        {
-          id: 1,
-          catgories: "finance",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picone,
-          heading: `payaza launches new crypto account and 
-                card for use in Nigeria`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 2,
-          catgories: "news",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: pictwo,
-          heading: `Federal Reserve Announces Interest Rate Hike citing
-                inflation concern`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 3,
-          catgories: "Automation",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picthree,
-          heading: `Federal Reserve Announces Interest Rate Hike citing
-                inflation concern`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 4,
-          catgories: "Lifestyle",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picfour,
-          heading: `Federal Reserve Announces Interest Rate Hike citing
-                inflation concern`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 5,
-          catgories: "Health & Fitness",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picfive,
-          heading: `Federal Reserve Announces Interest Rate Hike citing
-                inflation concern`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 6,
-          catgories: "LifeStyle",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picsix,
-          heading: `Federal Reserve Announces Interest Rate Hike citing
-                inflation concern`,
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
+  // console.log(newstories)
+      const newData = await Promise.all(
+        newstories?.items.map(async (item) => {
+          
+           
+          let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
+          let writer = await client.getEntry(item.fields.storyId.fields.writerId.sys.id)
+          let answer = data.fields.category;
+           let answriter = writer.fields.name
+           return {
+            heading: item.fields.storyId.fields.heading,
+            summary: item.fields.storyId.fields.summary,
+            thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
+            category: answer,
+            writer:answriter,
+            id:item.sys.id
+           };
+         })
+       );
     
-        {
-          id: 7,
-          catgories: "Technology",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: picseven,
-          heading: "Tech Giants Apple and Amazon Beat Q3 Earning Expectations",
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
-        {
-          id: 8,
-          catgories: "Finance",
-          author: "alec whitten",
-          date: "1 jan 2023",
-          pic: piceight,
-          heading: "Tech Giants Apple and Amazon Beat Q3 Earning Expectations",
-          body: `Like to Know the secret of transforming a 
-                2-14 into Super Bowl winning Dynasty`,
-        },
+       setData(data=>newData)
 
-        {
-            id:9,
-            catgories:'Health & Fitness',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:picten,
-            heading:`Federal Reserve Announces Interest Rate Hike citing
-            inflation concern`,
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`,  
-        },
-        {
-            id:10,
-            catgories:'LifeStyle',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:piceleven,
-            heading:`Federal Reserve Announces Interest Rate Hike citing
-            inflation concern`,
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`,  
-        },
+  }
 
-        {
-            id:11,
-            catgories:'Technology',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:pictwelevn,
-            heading:'Tech Giants Apple and Amazon Beat Q3 Earning Expectations',
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`, 
-        },
-        {
-            id:12,
-            catgories:'Finance',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:picthreeteen,
-            heading:'Tech Giants Apple and Amazon Beat Q3 Earning Expectations',
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`, 
-        }
-      ];
+
+  useEffect(()=>{
+    const intervalId = setInterval(() => {
+    recentstories();
+  },5000)
+
+  return () => {
+    clearInterval(intervalId);
+  };
+  },[])
+
+  // console.log(data)
+
+   
+
+
+
+
+  const handleClick = (id)=>{
+    navigate(`/story/${id}`);
+  }
+
     return (
         <div
         className= "w-full flex flex-col items-center " >
@@ -162,40 +86,40 @@ export default function Body() {
         </section>
         <div className="w-10/12 mt-4 ">
           <article className=" w-full grid grid-cols-1 gap-9 place-content-center sm:w-full sm:grid sm:grid-cols-1 sm:gap-9  sm:place-content-between  md:w-full md:grid md:grid-cols-1 md:gap-3 md:space-x-4 md:place-content-center lg:w-full lg:grid lg:grid-cols-4 lg:gap-y-14 lg:space-x-4 lg:place-content-center">
-            {arr.map((item) => {
+            {data.map((item, index) => {
               return (
                 <section
                   className="m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64"
-                  key={item.id}
-                >
+                  key={index}
+                  onClick={()=>handleClick(item.id)}>
                   <div className=" w-full flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
                     <section className="   w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                       <img
-                        src={item.pic}
+                        src={item.thumbnail}
                         className="w-full h-24 sm:h-24 md:h-32 lg:h-40"
                       />
                       <article className="w-full absolute top-0 left-0 right-0 bottom-0 bg-cover bg-black bg-opacity-10">
                         <div className="w-full mt-4 ml-3">
                           <button className="px-2.5 py-1 font-medium capitalize text-white bg-[#FD9005] text-xs hidden sm:block md:block lg:block">
-                            {item.catgories}
+                            {item.category}
                           </button>
                         </div>
                       </article>
                     </section>
   
-                    <article className="w-10/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
+                    <article className="w-11/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
                       <div className="w-full mt-4">
-                        <span className="flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1 ">
-                          <a>alec whitten</a> <a>.</a> <a>1 jan 2023</a>
+                        <span className="flex flex-row w-full sm:w-full md:w-full lg:w-10/12 float-left capitalize font-medium text-xs space-x-1 ">
+                          <a>{item.writer}</a> <a>.</a> <a>1 jan 2023</a>
                         </span>
                       </div>
   
-                      <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize  ">
-                        {item.heading}
+                      <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize" onClick={()=>handleClick(item.id)} >
+                        {item.heading.length >= 70?item.heading.substr(0, 70):item.heading}
                       </section>
   
                       <article className="text-xs mt-1 hidden sm:block md:hidden lg:block lg:text-xs lg:mt-3 w-full text-left capitalize text-gray-500">
-                        {item.body}
+                        {item.summary.length >= 100?item.summary.substr(0, 90):item.summary}
                       </article>
                     </article>
                   </div>
