@@ -57,7 +57,7 @@ export default function Story() {
             const datadhj = await client.getEntry(slug);
             console.log(datadhj)
       let write = await client.getEntry(datadhj.fields.storyId.fields.writerId.sys.id)
-      console.log(write)
+    //   console.log(write)
         let cate = await client.getEntry(datadhj.fields.storyId.fields.categoryId.sys.id)
             setPreach(preach  =>datadhj);
         setCategory(category=>cate.fields)
@@ -65,7 +65,7 @@ export default function Story() {
         setWhole(whole=>datadhj?.fields.storyId.fields)
         setpara(para=>datadhj?.fields.storyId.fields.body.content)
           } catch (error) {
-            console.error('Error fetching data from Contentful:', error);
+            console.log('Error fetching data from Contentful:', error);
             // Handle error if needed, e.g., setError(true)
           }
     }

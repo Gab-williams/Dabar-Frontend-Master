@@ -33,6 +33,7 @@ export default function Slider(props) {
     const fetchData = async () => {
       const newData = await Promise.all(
         topstories.map(async (item) => {
+           
            //console.log(item.fields.storyId.fields.thumbnail.fields.file.url)
           let data = await client.getEntry(item.fields.storyId.fields.subCategoriesId.sys.id);
           let answer = data.fields.name;
