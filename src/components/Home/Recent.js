@@ -7,52 +7,7 @@ import piceight from '../../images/phone.png';
 
 export default function Recent(props) {
   const { newstroriesall, client, handleClick } = props;
-    const recent = [
-        {
-            id:1,
-            catgories:'Health & Fitness',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:picfive,
-            heading:`Federal Reserve Announces Interest Rate Hike citing
-            inflation concern`,
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`,  
-        },
-        {
-            id:2,
-            catgories:'LifeStyle',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:picsix,
-            heading:`Federal Reserve Announces Interest Rate Hike citing
-            inflation concern`,
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`,  
-        },
-
-        {
-            id:3,
-            catgories:'Technology',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:picseven,
-            heading:'Tech Giants Apple and Amazon Beat Q3 Earning Expectations',
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`, 
-        },
-        {
-            id:8,
-            catgories:'Finance',
-            author:'alec whitten',
-            date:'1 jan 2023',
-            pic:piceight,
-            heading:'Tech Giants Apple and Amazon Beat Q3 Earning Expectations',
-            body:`Like to Know the secret of transforming a 
-            2-14 into Super Bowl winning Dynasty`, 
-        }
-
-    ];
+    
    
     const [alldata, setallData] = useState([])  
 
