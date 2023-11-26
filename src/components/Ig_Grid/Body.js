@@ -42,7 +42,7 @@ export default function Body() {
 
   return (
     <div className='w-full'>
-      <section className='w-10/12 text-black text-lg sm:w-10/12 sm:text-base md:w-10/12 md:text-lg lg:w-1/3 lg:text-black lg:text-4xl m-auto capitalize font-semibold text-center mb-12 mt-12'>
+      <section className='w-10/12  text-lg sm:w-10/12 sm:text-base md:w-10/12 md:text-lg lg:w-1/3  lg:text-4xl m-auto capitalize font-semibold text-center mb-12 mt-12'>
         the Dabar instagram
       </section>
 
