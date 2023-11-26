@@ -12,6 +12,8 @@ import React,{useState, useEffect, useContext} from 'react'
 // import piceleven from '../../images/Group 237606.png';
 // import pictwelevn from '../../images/computer.png';
 // import picthreeteen from '../../images/phone.png';
+import ReactPaginate from 'react-paginate';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { context } from '../../Context';
 
@@ -20,13 +22,18 @@ export default function Body() {
   const navigate = useNavigate();
   const created = useContext(context);
   let {client} = created
+  const location = useLocation();
+   let  categoryurl =  location.state.category
+  //  console.log("categoryurl", categoryurl)
   const [pageSize, setpageSize] = useState(12)
-  const [page, setpage] = useState(1)
+  const [currentPage, setcurrentPage] = useState(1);
+  const [pagex, setpage] = useState(1)
   const [data, setData] = useState([])
+  const [wholearr, setWholearr] = useState([])
   const recentstories = async()=>{
     let newstories = await client.getEntries({content_type:'currentstories',  select:'fields'})
 
-  // console.log(newstories)
+ 
       const newData = await Promise.all(
         newstories?.items.map(async (item) => {
           
@@ -45,13 +52,28 @@ export default function Body() {
            };
          })
        );
-    
-       setData(data=>newData)
+         let filterdata = newData.filter((item)=>item.category.toLowerCase() == categoryurl.toLowerCase())
+         setWholearr(wholearr=>filterdata)
+        // console.log("filterdata", filterdata)
+         let page = Math.ceil(filterdata.length / 12);
+         const indexofLastPost =  currentPage * pageSize;
+         const indexofFirstPost = indexofLastPost - pageSize;
+         let ansdata = filterdata?.slice(indexofFirstPost, indexofLastPost);
+         console.log(ansdata)
+         setpage(pagex=>page)
+         if(categoryurl){
+          setData(data=>ansdata)
+         }else{
+          setData([]) 
+         }
 
   }
 
 
   useEffect(()=>{
+
+
+
     const intervalId = setInterval(() => {
     recentstories();
   },5000)
@@ -72,6 +94,16 @@ export default function Body() {
     navigate(`/story/${id}`);
   }
 
+
+  const handleNext =(ans)=>{
+    let number = ans.selected + 1;  
+
+    const indexofLastPost =  number * pageSize;
+    const indexofFirstPost = indexofLastPost - pageSize;
+    let ansdata = wholearr?.slice(indexofFirstPost, indexofLastPost);
+    setData(data=>ansdata)
+  }
+
     return (
         <div
         className= "w-full flex flex-col items-center " >
@@ -86,7 +118,7 @@ export default function Body() {
         </section>
         <div className="w-10/12 mt-4 ">
           <article className=" w-full grid grid-cols-1 gap-9 place-content-center sm:w-full sm:grid sm:grid-cols-1 sm:gap-9  sm:place-content-between  md:w-full md:grid md:grid-cols-1 md:gap-3 md:space-x-4 md:place-content-center lg:w-full lg:grid lg:grid-cols-4 lg:gap-y-14 lg:space-x-4 lg:place-content-center">
-            {data.map((item, index) => {
+            {data.length > 0? data.map((item, index) => {
               return (
                 <section
                   className="m-auto w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-64"
@@ -125,13 +157,27 @@ export default function Body() {
                   </div>
                 </section>
               );
-            })}
+            }):
+            <section className='h-96 text-center grid place-content-center m-auto text-lg capitalize w-full '>this data is not availiable</section>
+            }
           </article>
         </div>
 
-        <section className='w-10/12 flex justify-center items-center mt-4 py-4'>
-                             <button className='w-28 px-2 py-2 capitalize text-sm text-center font-medium border border-black rounded-sm'>load more</button>
-                </section>
+        <section className='w-10/12 flex justify-center items-center mt-4 py-4 '>
+        <ReactPaginate
+                  previousLabel={'<'}
+                  nextLabel={'>'}
+                    pageCount={pagex}
+                    breakLabel={"..."}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={1}
+                    onPageChange={handleNext}
+                    containerClassName={'flex flex-row items-center w-1/5 m-auto space-x-3'}
+                    // pageclassNameName={' '}
+                    pageLinkClassName={''}
+                    previousClassName={'bg-[#FD9005] rounded-l-lg px-2 py-1 text-lg justify-center items-center text-white'}
+                    nextClassName={'bg-[#FD9005] px-2 py-1 text-lg justify-center items-center text-white rounded-r-lg'}
+                  />                </section>
 
               
       </div>

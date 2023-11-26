@@ -28,7 +28,7 @@ export default function CategoryList() {
         }
     }
     return (
-        <div>
+        <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
             <Top/>
             <Category/>

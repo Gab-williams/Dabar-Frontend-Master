@@ -20,10 +20,10 @@ export default function Team() {
         }
     }
     return (
-        <div>
+        <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
 
-            <h2 className='text-2xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold text-black mt-5  uppercase text-center'>The dabar team</h2>
+            <h2 className={!sunmoon?'text-2xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold text-black mt-5  uppercase text-center':'text-2xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold text-white mt-5  uppercase text-center'} >The dabar team</h2>
 
             <Grid/>
             <MobileNav/>

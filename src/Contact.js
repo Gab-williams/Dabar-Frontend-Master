@@ -21,7 +21,7 @@ export default function Contact() {
         }
     }
     return (
-        <div className='w-full'>
+        <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
            <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
             <Hero/> 
             <Form/>

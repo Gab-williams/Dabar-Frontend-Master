@@ -41,7 +41,7 @@ export default function Ig_Grid() {
   };
 
   return (
-    <div className='w-full'>
+    <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
       <Header sunmoon={sunmoon} setSunMoon={setSunMoon} handleSun={handleSun} />
       <MobileNav />
       <Body items={items.slice(0, visibleItems)} />

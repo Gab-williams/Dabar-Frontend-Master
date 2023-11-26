@@ -86,7 +86,7 @@ export default function Story() {
    
   
     return (
-        <div className={!sunmoon?'text-black':'text-white'}>
+        <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}  />
             <Hero whole={whole} writer={writer} category={category}/>
             <MobileNav/>
