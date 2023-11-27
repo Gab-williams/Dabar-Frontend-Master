@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './components/main/Header'
 import Hero from './components/Contact/Hero'
 import Form from './components/Contact/Form'
@@ -13,15 +13,31 @@ export default function Contact() {
         if(!sunmoon){
       e.preventDefault();
      setSunMoon(true)  
+     let object = {status:true}
+     localStorage.setItem("btn", JSON.stringify(object))
      document.body.style='background:black;'; 
         }else{
         e.preventDefault()
         setSunMoon(false)
+        let object = {status:false}
+        localStorage.setItem("btn", JSON.stringify(object))
         document.body.style = 'background:white;';
         }
     }
+
+    
+    let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):false
+    
+     useEffect(()=>{
+
+      if(Object.keys(dataa).length > 0){
+       
+       setSunMoon(sunmoon=>dataa.status)
+      }
+     },[dataa])
+
     return (
-        <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
+        <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
            <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}/>
             <Hero/> 
             <Form/>

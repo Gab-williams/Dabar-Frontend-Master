@@ -13,8 +13,8 @@ import React,{useState, useEffect, useContext} from 'react'
 // import pictwelevn from '../../images/computer.png';
 // import picthreeteen from '../../images/phone.png';
 import ReactPaginate from 'react-paginate';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { context } from '../../Context';
 
 
@@ -22,8 +22,11 @@ export default function Body() {
   const navigate = useNavigate();
   const created = useContext(context);
   let {client} = created
-  const location = useLocation();
-   let  categoryurl =  location.state.category
+  // const location = useLocation();
+  // console.log (location)
+  let {slug} = useParams()
+   let  categoryurl =  slug
+
   //  console.log("categoryurl", categoryurl)
   const [pageSize, setpageSize] = useState(12)
   const [currentPage, setcurrentPage] = useState(1);
@@ -54,7 +57,7 @@ export default function Body() {
        );
          let filterdata = newData.filter((item)=>item.category.toLowerCase() == categoryurl.toLowerCase())
          setWholearr(wholearr=>filterdata)
-        // console.log("filterdata", filterdata)
+         console.log("filterdata", filterdata)
          let page = Math.ceil(filterdata.length / 12);
          const indexofLastPost =  currentPage * pageSize;
          const indexofFirstPost = indexofLastPost - pageSize;
@@ -71,10 +74,7 @@ export default function Body() {
 
 
   useEffect(()=>{
-
-
-
-    const intervalId = setInterval(() => {
+ const intervalId = setInterval(() => {
     recentstories();
   },5000)
 

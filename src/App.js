@@ -19,7 +19,7 @@ function App() {
       <Route path="/about us" element={<About/>} />
       <Route path="/team" element={<Team/>} />
       <Route path="/video-category" element={<Category/>} />
-      <Route path="/category-list" element={<CategoryList/>} />
+      <Route path="/category-list/:slug" element={<CategoryList/>} />
       <Route path="/ig_grid" element={<Ig_Grid/>} />
       <Route path="*" element={<Error/>} />
       </Routes>

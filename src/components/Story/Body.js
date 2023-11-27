@@ -1,17 +1,19 @@
 import React from 'react'
 
-export default function Body() {
+export default function Body(props) {
+  const {para} = props
     return (
         <div className='w-full flex flex-col items-center mt-5'>
-            <p className='text-md text-left capitalize font-regular'>
-            Structured gripped tape invisible moulded cups for sauppor firm hold strong powermesh front liner sport detail. 
-            Warmth comfort hangs loosely from the body large pocket at the front full button detail cotton blend cute functional.
-             Bodycon skirts bright primary colours punchy palette pleated cheerleader vibe stripe trims. 
-             Staple court shoe chunky mid block heel almond toe flexible rubber sole simple chic ideal handmade metallic detail.
-             Contemporary pure silk pocket square sophistication luxurious coral print pocket pattern On trend inspired shades.
-            </p>
+          {para.map((item)=>{
+            return item.content.map((one, index)=>{
+              return<p className='text-md text-left capitalize font-regular mt-2' key={index}>
+                {one.value}
+              </p>
+            })
+          })}
             
-            <p className='text-md text-left capitalize font-regular mt-6'>
+            
+            {/* <p className='text-md text-left capitalize font-regular mt-6'>
             Striking pewter studded epaulettes silver zips inner drawstring waist channel urban edge single-breasted jacket. 
             Engraved attention to detail elegant with neutral colours cheme 
             </p>
@@ -35,7 +37,7 @@ export default function Body() {
               Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. 
               Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut.
                Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo condimentum aenean. 
-              </p>
+              </p> */}
 
         </div>
     )

@@ -1,15 +1,15 @@
 import React,{useState, useEffect, useContext} from 'react'
 import image from '../../thumbnail/city.png'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { context } from '../../Context';
 
 export default function Top() {
     const created = useContext(context);
     let {client, categoryMenu} = created
     const location = useLocation();
-
+    const {slug} = useParams()
     const [categoriesdata, setCategoriesdata] = useState([])
-    let  categoryurl =  location.state.category
+    let  categoryurl = slug
     useEffect(()=>{
        let data = categoryMenu.filter((item)=>item.title.toLowerCase() == categoryurl.toLowerCase()) 
        setCategoriesdata(categoriesdata=>data)

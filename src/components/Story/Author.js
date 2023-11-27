@@ -4,7 +4,8 @@ import { RiTwitterXLine } from "react-icons/ri";
 import {FaBehance, FaEllipsisH} from 'react-icons/fa';
 import { BsLinkedin } from "react-icons/bs";
 import {AiFillGithub} from 'react-icons/ai'
-export default function Author() {
+export default function Author(props) {
+    const {writer} = props
     return (
         <div className='w-full  flex flex-col items-center bg-gray-100 border border-gray-400 mt-9 sm:mt-5 md:mt-5 lg:mt-0'>
             
@@ -14,7 +15,7 @@ export default function Author() {
                 <img src={person} className='w-full h-full' />
             </span>
             <span className='w-full mt-4 text-black text-center capitalize font-medium'>
-              Luci Avetisyan
+              {Object.keys(writer).length > 0? writer.name:""}
             </span>
 
             <div className='w-full mt-2 flex flex-row items-center justify-center'>

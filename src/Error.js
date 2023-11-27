@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import Header from './components/main/Header'
 import Body from "./components/404/Body";
 import Footer from './components/main/Foooter'
@@ -8,6 +8,7 @@ import { context } from './Context';
 export default function Error() {
     const created = useContext(context);
     let {client} = created
+    const [sunmoon, setSunMoon] = useState(false)
 
 
 
@@ -54,14 +55,40 @@ export default function Error() {
            }
         }
         steve()
-
-
-
      },[])
 
+
+     const handleSun =(e)=>{
+        if(!sunmoon){
+      e.preventDefault();
+     setSunMoon(true)  
+     let object = {status:true}
+     localStorage.setItem("btn", JSON.stringify(object))
+     document.body.style='background:black;'; 
+        }else{
+        e.preventDefault()
+        setSunMoon(false)
+        let object = {status:false}
+        localStorage.setItem("btn", JSON.stringify(object))
+        document.body.style = 'background:white;';
+        }
+    }
+
+    
+    let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):false
+    
+     useEffect(()=>{
+
+      if(Object.keys(dataa).length > 0){
+       
+       setSunMoon(sunmoon=>dataa.status)
+      }
+     },[dataa])
+
+
     return (
-        <div>
-            <Header/>
+        <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
+            <Header handleSun={handleSun}/>
              <Body/>
              <MobileNav/>
              <Foooter/>

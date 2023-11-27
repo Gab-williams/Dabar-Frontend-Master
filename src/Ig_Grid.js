@@ -23,17 +23,30 @@ export default function Ig_Grid() {
     fetchData();
   }, []);
 
-  const handleSun = (e) => {
-    if (!sunmoon) {
-      e.preventDefault();
-      setSunMoon(true);
-      document.body.style = 'background:black;';
-    } else {
-      e.preventDefault();
-      setSunMoon(false);
-      document.body.style = 'background:white;';
+  const handleSun =(e)=>{
+    if(!sunmoon){
+  e.preventDefault();
+ setSunMoon(true)  
+ let object = {status:true}
+ localStorage.setItem("btn", JSON.stringify(object))
+ document.body.style='background:black;'; 
+    }else{
+    e.preventDefault()
+    setSunMoon(false)
+    let object = {status:false}
+    localStorage.setItem("btn", JSON.stringify(object))
+    document.body.style = 'background:white;';
     }
-  };
+}
+
+let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):false
+ useEffect(()=>{
+  if(Object.keys(dataa).length > 0){
+   
+   setSunMoon(sunmoon=>dataa.status)
+  }
+ },[dataa])
+
 
   const handleLoadMore = () => {
     // Increase the number of visible items on "Load More" button click
@@ -41,7 +54,7 @@ export default function Ig_Grid() {
   };
 
   return (
-    <div className={!sunmoon?'w-full text-black':' w-full text-white'}>
+    <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
       <Header sunmoon={sunmoon} setSunMoon={setSunMoon} handleSun={handleSun} />
       <MobileNav />
       <Body items={items.slice(0, visibleItems)} />

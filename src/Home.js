@@ -32,17 +32,36 @@ export default function Home() {
         if(!sunmoon){
       e.preventDefault();
      setSunMoon(true)  
+     let object = {status:true}
+     localStorage.setItem("btn", JSON.stringify(object))
      document.body.style='background:black;'; 
         }else{
         e.preventDefault()
         setSunMoon(false)
+        let object = {status:false}
+        localStorage.setItem("btn", JSON.stringify(object))
         document.body.style = 'background:white;';
         }
     }
     
+
     const handleClick = (id)=>{
       navigate(`/story/${id}`);
     }
+    
+    let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):false
+    
+     useEffect(()=>{
+
+      if(Object.keys(dataa).length > 0){
+       
+       setSunMoon(sunmoon=>dataa.status)
+      }
+
+
+     },[dataa])
+
+     console.log(sunmoon)
     useEffect(()=>{
         const steve = async ()=>{
            try {
@@ -110,7 +129,7 @@ export default function Home() {
      },[])
 
     return (
-        <div className={!sunmoon?'text-black':'text-white'}>
+        <div className={!sunmoon?'text-black bg-white':'text-white bg-black'}>
              <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun} />
              <Slider topstories={topstories} client={client} sunmoon={sunmoon} handleClick={handleClick}/>
              <Category/>
