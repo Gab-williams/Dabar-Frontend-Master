@@ -8,13 +8,13 @@ export default function Keypoint(props) {
                  Key Points
                 </span>   
                 <ul className='w-10/12 flex flex-col items-center  float-left py-3'>
-                    {keypoints.map((item, index)=>{
+                    {keypoints.length > 0? keypoints.map((item, index)=>{
                         return  <li className='w-full text-black text-md text-left capitalize mt-2'>
                          {item.content.map((items)=>{
                             return items.value
                         })}
                       </li>
-                    })}
+                    }):[]}
                     
                   
                 </ul>

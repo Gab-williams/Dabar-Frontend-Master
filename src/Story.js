@@ -7,7 +7,8 @@ import MobileNav from './components/Home/MobileNav';
 import { Await, useParams } from 'react-router-dom';
 import { context } from './Context';
 import Advert2 from './components/Home/Advert2';
-
+// import content from "../../images/content-single.jpg";
+import pic from './images/content-single.jpg'
 export default function Story() {
     const [sunmoon, setSunMoon] = useState(false)
     const [whole, setWhole] = useState([])
@@ -95,8 +96,18 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
          console.log(write)
         let cate = await client.getEntry(datadhj.fields.storyId.fields.categoryId.sys.id)
        let pre = datadhj?.fields.storyId.fields.preSummary
-       setkeypoints(keypoints=>datadhj?.fields.storyId.fields.keypoints.content)
-       SetmainImg(mainImg=>datadhj?.fields.storyId.fields.mainImage.fields.file.url)
+       console.log(datadhj?.fields.storyId.fields.keypoints)
+       if(datadhj?.fields.storyId.fields.keypoints.content != undefined){
+        setkeypoints(keypoints=>datadhj?.fields.storyId.fields.keypoints.content)
+       }else{
+        setkeypoints([]);
+       }
+    // console.log(datadhj?.fields.storyId)
+    if(datadhj?.fields.storyId.fields.mainImage || datadhj?.fields.storyId.fields.mainImage != undefined){
+        SetmainImg(mainImg=>datadhj?.fields.storyId.fields.mainImage.fields.file.url)
+    }else{
+        SetmainImg(mainImg=>pic)  
+    }
        setPreSummary(preSummary=>pre)
             setPreach(preach  =>datadhj);
         setCategory(category=>cate.fields)

@@ -1,5 +1,5 @@
 import React from "react";
-import content from "../../images/content-single.jpg";
+// import content from "../../images/content-single.jpg";
 import { FaSquareFacebook, FaXTwitter  } from "react-icons/fa6";
 import { FaInstagram, FaWhatsapp, FaTelegram  } from "react-icons/fa";
 export default function Hero(props) {
