@@ -1,9 +1,9 @@
 import React,{useEffect, useState} from "react";
-import {MdOutlineKeyboardArrowRight} from 'react-icons/md';
-import picfive from '../../images/medical.png';
-import picsix from '../../images/Group 237606.png';
-import picseven from '../../images/computer.png';
-import piceight from '../../images/phone.png';
+// import {MdOutlineKeyboardArrowRight} from 'react-icons/md';
+// import picfive from '../../images/medical.png';
+// import picsix from '../../images/Group 237606.png';
+// import picseven from '../../images/computer.png';
+// import piceight from '../../images/phone.png';
 
 export default function Recent(props) {
   const { newstroriesall, client, handleClick } = props;
@@ -16,6 +16,8 @@ export default function Recent(props) {
       const fetchData = async () => {
          const newData = await Promise.all(
           newstroriesall.map(async (item) => {
+            let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
+
               //console.log(item.fields.storyId.fields.writerId.sys.id)
              let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
              let writer = await client.getEntry(item.fields.storyId.fields.writerId.sys.id)
@@ -27,7 +29,8 @@ export default function Recent(props) {
                thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
                category: answer,
                writer:answriter,
-               id:item.sys.id
+               id:item.sys.id,
+               timez:timez,
              };
            })
          );
@@ -77,7 +80,7 @@ export default function Recent(props) {
 
                       
 
-                       <section className='w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize' onClick={()=>handleClick(item.id)}>
+                       <section className='w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 cursor-pointer font-semibold text-left capitalize' onClick={()=>handleClick(item.id)}>
                        {item.heading.length >= 70?item.heading.substr(0,100)+"...":item.heading}
                        </section>
 
@@ -86,7 +89,7 @@ export default function Recent(props) {
                        </article>
                           </section>
                           <div className='w-full mt-4'>
-                       <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>1 jan 2023</a></span>
+                       <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>{item.timez}</a></span>
                        </div>
 
                   

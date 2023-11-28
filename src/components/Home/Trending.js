@@ -20,7 +20,10 @@ export default function Trending(props) {
      const fetchData = async () => {
         const newData = await Promise.all(
           tendall.map(async (item) => {
+            // console.log(item.fields.storyId.sys.createdAt)
              //console.log(item.fields.storyId.fields.writerId.sys.id)
+             //var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+             let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
             let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
             let writer = await client.getEntry(item.fields.storyId.fields.writerId.sys.id)
             let answer = data.fields.category;
@@ -31,7 +34,9 @@ export default function Trending(props) {
               category: answer,
               writer:answriter,
               thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
-              id:item.sys.id
+              id:item.sys.id,
+              timez:timez
+
             };
           })
         );
@@ -177,7 +182,7 @@ export default function Trending(props) {
                       </div>
                    
 
-                    <section className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 font-semibold text-left capitalize" onClick={()=>handleClick(item.id)}>
+                    <section className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3  cursor-pointer font-semibold text-left capitalize" onClick={()=>handleClick(item.id)}>
                       {item.heading}
                     </section>
 
@@ -185,7 +190,7 @@ export default function Trending(props) {
                       {item.summary.length >= 100?item.summary.substr(0, 90):item.summary}
                     </article> 
                     <div className="w-full mt-4">
-                    <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>1 jan 2023</a></span>
+                    <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>{item.timez}</a></span>
 
                     </div>
                   </article>

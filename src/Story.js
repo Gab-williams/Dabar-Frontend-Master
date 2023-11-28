@@ -4,7 +4,7 @@ import Hero from "./components/Story/Hero"
 import Storypart from './components/Story/Storypart';
 import Footer from './components/main/Foooter'
 import MobileNav from './components/Home/MobileNav';
-import { useParams } from 'react-router-dom';
+import { Await, useParams } from 'react-router-dom';
 import { context } from './Context';
 import Advert2 from './components/Home/Advert2';
 
@@ -18,9 +18,13 @@ export default function Story() {
     const created = useContext(context);
     const [preach, setPreach] = useState([])
     const [datexz, setDatexz] = useState([])
+    const [mainImg, SetmainImg] = useState([])
+    const [keypoints, setkeypoints] = useState([])
+    const [preSummary, setPreSummary] = useState("")
+    const [timex, settimex] = useState("")
    const {slug} = useParams();
-   let {client} = created
-   
+   let {client, setidstory} = created
+
    const handleSun =(e)=>{
     if(!sunmoon){
   e.preventDefault();
@@ -36,6 +40,15 @@ export default function Story() {
     document.body.style = 'background:white;';
     }
 }
+
+useEffect(()=>{
+    const getslug = async()=>{
+        if(slug){
+            await setidstory(slug)   
+           }
+    }
+    getslug();
+},[])
 
 let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):false
  useEffect(()=>{
@@ -70,15 +83,21 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
 
     const fetechData = async()=>{
         try {
+           
             const datadhj = await client.getEntry(slug);
+          console.log(datadhj.fields.storyId.fields)
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             let timez = new Date(datadhj?.sys.createdAt).toLocaleDateString("en-US", options);
             //console.log(timez)
+            settimex(timex=>timez)
             setDatexz(datexz=>timez)
       let write = await client.getEntry(datadhj.fields.storyId.fields.writerId.sys.id)
-        //  console.log(write)
+         console.log(write)
         let cate = await client.getEntry(datadhj.fields.storyId.fields.categoryId.sys.id)
-       console.log(datadhj?.fields.storyId.fields)
+       let pre = datadhj?.fields.storyId.fields.preSummary
+       setkeypoints(keypoints=>datadhj?.fields.storyId.fields.keypoints.content)
+       SetmainImg(mainImg=>datadhj?.fields.storyId.fields.mainImage.fields.file.url)
+       setPreSummary(preSummary=>pre)
             setPreach(preach  =>datadhj);
         setCategory(category=>cate.fields)
         setWriter(writer=>write.fields)
@@ -109,9 +128,9 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
         <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}  />
             <Advert2 />
-            <Hero whole={whole} writer={writer} category={category} datexz={datexz}/>
+            <Hero whole={whole} writer={writer} category={category} datexz={datexz} mainImg={mainImg} preSummary={preSummary} timex={timex}/>
             <MobileNav/>
-            <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc}/>
+            <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc} keypoints={keypoints}/>
             <Footer/>
         </div>
     )

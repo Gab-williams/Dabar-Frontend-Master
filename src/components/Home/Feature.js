@@ -44,11 +44,11 @@ export default function Feature(props) {
                         </span>
                         <div className='w-full flex flex-col items-center'>
                            
-                            <span className='w-full py-1 px-1 text-xs font-semibold capitalize text-left' onClick={()=>handleClick(item.id)}>
+                            <span className='w-full py-1 px-1 text-xs font-semibold capitalize text-left  cursor-pointer' onClick={()=>handleClick(item.id)}>
                               {item.heading}
                             </span>
                             <span className='w-full px-1'>
-                               <button className=' h-6 text-xs float-left  font-medium capitalize text-orange-500'>{item.category}</button>
+                               <a className=' h-6 text-xs float-left  font-medium capitalize text-orange-500'>{item.category}</a>
                            </span>
                         </div>
                      </section>

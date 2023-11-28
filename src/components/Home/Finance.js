@@ -59,6 +59,8 @@ useEffect(()=>{
       const newData = await Promise.all(
         financeall.map(async (item) => {
            //console.log(item.fields.storyId.fields.writerId.sys.id)
+           let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
+
           let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
           let writer = await client.getEntry(item.fields.storyId.fields.writerId.sys.id)
           let answer = data.fields.category;
@@ -69,7 +71,8 @@ useEffect(()=>{
             thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
             category: answer,
             writer:answriter,
-            id:item.sys.id
+            id:item.sys.id,
+            timez:timez
           };
         })
       );
@@ -128,7 +131,7 @@ useEffect(()=>{
                       </div>
 
                     <section
-                      className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 font-semibold text-left capitalize"
+                      className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 cursor-pointer font-semibold text-left capitalize"
                       onClick={() => handleClick(item.id)}
                     >
                       {item.heading.length >= 70
@@ -148,7 +151,7 @@ useEffect(()=>{
                             ? item.writer.substr(0, 20) + "..."
                             : item.writer}
                         </a>{" "}
-                        <a>.</a> <a>1 jan 2023</a>
+                        <a>.</a> <a>{item.timez}</a>
                       </span>
                     </div>
                     </article>

@@ -61,7 +61,8 @@ export default function Editors(props) {
     const fetchData = async () => {
       const newData = await Promise.all(
         editorall.map(async (item) => {
-          console.log(item.fields.storyId.fields);
+          let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
+          // console.log(item.fields.storyId.fields);
           let data = await client.getEntry(
             item.fields.storyId.fields.categoryId.sys.id
           );
@@ -77,6 +78,7 @@ export default function Editors(props) {
             thumbnail: item.fields.storyId.fields.thumbnail.fields.file.url,
             writer: answriter,
             id: item.sys.id,
+            timez:timez
           };
         })
       );
@@ -134,7 +136,7 @@ export default function Editors(props) {
                       </div>
 
                     <section
-                      className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 font-semibold text-left capitalize"
+                      className="w-full leading-6 tracking-tight text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-sm lg:mt-3 cursor-pointer font-semibold text-left capitalize"
                       onClick={() => handleClick(item.id)}
                     >
                       {item.heading.length >= 70
@@ -154,7 +156,7 @@ export default function Editors(props) {
                             ? item.writer.substr(0, 20) + "..."
                             : item.writer}
                         </a>{" "}
-                        <a>.</a> <a>1 jan 2023</a>
+                        <a>.</a> <a>{item.timez}</a>
                       </span>
                     </div>
                     </article>

@@ -83,6 +83,11 @@ export default function Header(props) {
   //     document.body.classList.add('background-white');
   // }
   // },[]);
+  let original = window.location.origin
+
+  const handleCateLink =(title)=>{
+    window.location.href = `${original}/category-list/${title}`;
+  }
 
   return (
     <div className=" md:w-full md:flex md:flex-col md:items-center md:justify-center md:p-2 md:headerall lg:w-full lg:flex lg:items-center lg:justify-center lg:p-2 headerall">
@@ -125,12 +130,12 @@ export default function Header(props) {
                     <ul className= {isCategoriesOpen ? 'mega-menu grid grid-flow-col auto-cols-max grid-rows-4 gap-4 rounded-sm bg-white top-7 absolute items-start ease-in-out duration-300 shadow-md z-20 p-4' : 'h-0 hidden ease-in-out duration-300 z-0'}>
   {categoryMenu.map((category, index) => (
     <li key={index} className='mb-4'>
-      <Link to={`/category-list/${category.title}`} className='flex items-center font-bold text-md text-black hover:underline hover:text-orange-500 transition-colors'>
+      <a  onClick={()=>handleCateLink(category.title)}   className='flex items-center font-bold text-md text-black hover:underline hover:text-orange-500 transition-colors'>
         {category.title}
         {category.subcategories && category.subcategories.length > 0 && (
           <FaChevronDown className='ml-1' />
         )}
-      </Link>
+      </a>
       {/* {category.subcategories && category.subcategories.length > 0 && (
         <ul className='w-40 sub-menu text-xs gap-2 mt-2'>
           {category.subcategories.map((subcategory, subIndex) => (

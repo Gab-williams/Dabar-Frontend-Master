@@ -146,7 +146,7 @@ export default function Body() {
                         </span>
                       </div>
   
-                      <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 font-semibold text-left capitalize" onClick={()=>handleClick(item.id)} >
+                      <section className="w-full text-xs mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-xs lg:mt-3 cursor-pointer font-semibold text-left capitalize" onClick={()=>handleClick(item.id)} >
                         {item.heading.length >= 70?item.heading.substr(0, 70):item.heading}
                       </section>
   
