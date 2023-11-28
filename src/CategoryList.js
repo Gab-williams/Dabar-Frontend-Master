@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import Header from './components/main/Header'
 import Top from './components/CategoryList/Top'
 import Body from './components/CategoryList/Body'
-import Footer from './components/main/Foooter'
+import Footer from './components/main/Footer'
 import MobileNav from './components/Home/MobileNav'
 import Category from './components/Home/Category'
 
