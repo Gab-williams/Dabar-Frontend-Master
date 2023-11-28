@@ -8,6 +8,7 @@ import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+import { FaChevronDown } from 'react-icons/fa';
 import { BsThreeDotsVertical, BsSearch, BsMoon } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBookmark } from "react-icons/fa";
@@ -121,17 +122,24 @@ export default function Header(props) {
                     >
                       <MdKeyboardArrowDown className="text-base" />
                     </a>
-                    <ul className={isCategoriesOpen ? 'mega-menu grid grid-flow-col auto-cols-max grid-rows-2 gap-4 rounded-sm bg-white top-7 absolute items-start ease-in-out duration-300 shadow-md z-20 p-4' : 'h-0 hidden ease-in-out duration-300 z-0'}>
+                    <ul className= {isCategoriesOpen ? 'mega-menu grid grid-flow-col auto-cols-max grid-rows-4 gap-4 rounded-sm bg-white top-7 absolute items-start ease-in-out duration-300 shadow-md z-20 p-4' : 'h-0 hidden ease-in-out duration-300 z-0'}>
   {categoryMenu.map((category, index) => (
     <li key={index} className='mb-4'>
-    <Link to={`/category-list/${category.title}`} className='font-bold text-md text-black'>{category.title}</Link>
-      {category.subcategories && category.subcategories.length > 0 && (
+      <Link to={`/category-list/${category.title}`} className='flex items-center font-bold text-md text-black hover:underline hover:text-orange-500 transition-colors'>
+        {category.title}
+        {category.subcategories && category.subcategories.length > 0 && (
+          <FaChevronDown className='ml-1' />
+        )}
+      </Link>
+      {/* {category.subcategories && category.subcategories.length > 0 && (
         <ul className='w-40 sub-menu text-xs gap-2 mt-2'>
           {category.subcategories.map((subcategory, subIndex) => (
-            <li key={subIndex}><Link to={`/${subcategory.replace(/\s+/g, '-').toLowerCase()}`} className='text-gray-600'>{subcategory}</Link></li>
+            <li key={subIndex}>
+              <Link to={`/${subcategory.replace(/\s+/g, '-').toLowerCase()}`} className='text-gray-600'>{subcategory}</Link>
+            </li>
           ))}
         </ul>
-      )}
+      )} */}
     </li>
   ))}
 </ul>

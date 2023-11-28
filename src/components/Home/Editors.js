@@ -89,20 +89,20 @@ export default function Editors(props) {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <section className="w-11/12 mt-10">
-        <article className="w-full flex flex-row items-center justify-between mt-20 px-2 space-x-2 ">
+      <section className="w-11/12 mt-5">
+        <article className="w-full flex flex-row items-center justify-between mt-5 px-2 space-x-2 ">
           <span className="w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/6 ">
             <button className="capitalize font-normal text-xl text-sm px-2 hidden md:inline">
               Editors Pick
             </button>
           </span>
 
-          <button className="hidden sm:hidden md:capitalize md:font-normal  md:bg-gray-300 md:flex md:flex-row md:items-center md:space-x-1 md:text-sm md:px-1 md:py-1 md:rounded-sm lg:capitalize lg:font-normal  lg:bg-gray-100 lg:flex lg:flex-row lg:items-center lg:text-black lg:space-x-1 lg:text-xs lg:pl-4 lg:px-2 lg:py-2 lg:rounded-md">
+          {/* <button className="hidden sm:hidden md:capitalize md:font-normal  md:bg-gray-300 md:flex md:flex-row md:items-center md:space-x-1 md:text-sm md:px-1 md:py-1 md:rounded-sm lg:capitalize lg:font-normal  lg:bg-gray-100 lg:flex lg:flex-row lg:items-center lg:text-black lg:space-x-1 lg:text-xs lg:pl-4 lg:px-2 lg:py-2 lg:rounded-md">
             <a className="capitalize text-xs">Show All</a>{" "}
             <a>
               <MdOutlineKeyboardArrowRight />
             </a>
-          </button>
+          </button> */}
         </article>
       </section>
       <div className="w-11/12 mt-4">
@@ -115,7 +115,7 @@ export default function Editors(props) {
                 onClick={() => handleClick(item.id)}
               >
                 <div className=" w-full flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
-                  <section className="   w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
+                  <section className="w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                     <img
                       src={item.thumbnail}
                       className="w-full h-24 sm:h-auto md:h-32 lg:h-auto"

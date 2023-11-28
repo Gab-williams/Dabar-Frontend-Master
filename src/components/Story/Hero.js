@@ -2,21 +2,22 @@ import React from "react";
 import content from "../../images/content-single.jpg";
 export default function Hero(props) {
    const {writer, category, datexz, whole} = props
+   
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <section className="w-full text-lg sm:w-full sm:text-lg md:w-2/3 md:text-2xl lg:w-3/4 lg:text-4xl p-4 capitalize font-bold m-auto mt-20">
           {Object.keys(whole)?whole.heading:""}
-        {/* <p class="font-medium text-black-300 pt-3 md:text-lg">
+        <p class="font-medium text-black-300 pt-3 md:text-lg">
           This deep dive assesses how Nigeria's exchange rate reform will impact
           FMCG companies and everyday consumers.
-        </p> */}
+        </p>
       </section>
 
       <section className="w-full sm:w-full md:w-3/4 lg:w-3/4  p-4 ">
         <div className="w-full">
           <section className="w-full sm:w-full md:w-11/12 lg:w-auto float-left flex flex-row items-center space-x-2 mt-6">
             {/* Category Button */}
-            <button className="h-full py-1 p-1 text-white text-xs capitalize text-center bg-[#FD9005] w-24 sm:text-sm">
+            <button className="h-full py-1 p-4 text-orange-500 text-xs capitalize text-center bg-gray-200 w-30 sm:text-sm">
               {Object.keys(category).length > 0? category.category:""}
             </button>
 

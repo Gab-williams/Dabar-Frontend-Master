@@ -6,15 +6,17 @@ import Feature from './components/Home/Feature';
 import Trending from './components/Home/Trending';
 import Latest from './components/Home/Latest';
 import Editors from './components/Home/Editors';
+import Advert from './components/Home/Advert';
 import Ash from './components/Home/Ash';
 import Recent from './components/Home/Recent';
 import Report from './components/Home/Report'
 import Finance from './components/Home/Finance';
-import Foooter from './components/main/Foooter';
+import Footer from './components/main/Footer';
 import Category from './components/Home/Category';
 import MobileNav from './components/Home/MobileNav';
 import { useNavigate } from 'react-router-dom';
 import { context } from './Context';
+import Advert2 from './components/Home/Advert2';
 
 export default function Home() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -131,17 +133,20 @@ export default function Home() {
     return (
         <div className={!sunmoon?'text-black bg-white':'text-white bg-black'}>
              <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun} />
+             <Advert2 />
              <Slider topstories={topstories} client={client} sunmoon={sunmoon} handleClick={handleClick}/>
              <Category/>
              <Feature client={client} featurestories={featurestories} handleClick={handleClick}/>
              <Trending sunmoon={sunmoon} tendall={tendall} client={client} handleClick={handleClick}/>
              <MobileNav/>
+             <Advert/>
              <Editors editorall={editorall} client={client} handleClick={handleClick}/>
              <Ash/>
+             <Advert/>
              <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick}/>
              <Report/>
              <Finance financeall={financeall} client={client} handleClick={handleClick}/>
-             <Foooter/>
+             <Footer/>
         </div>
     )
 }

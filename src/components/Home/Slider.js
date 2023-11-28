@@ -71,7 +71,7 @@ export default function Slider(props) {
     return (
         <div className='w-full flex  items-center justify-center'>
      {/* large screen */}
-            <article className={!sunmoon?'hidden sm:hidden md:hidden lg:w-full lg:mt-10 lg:p-6 lg:block':'hidden sm:hidden md:hidden lg:w-full lg:mt-10 lg:p-6 lg:block'} >
+            <article className={!sunmoon?'hidden sm:hidden md:hidden lg:w-full lg:mt-1 lg:p-6 lg:block':'hidden sm:hidden md:hidden lg:w-full lg:mt-1 lg:p-6 lg:block'} >
                 <Carousel ref={carouselRef} onSlideChange={currentSlide => setCurrentSlide(currentSlide)} showArrows={false} pagination={false} itemsToShow={3}  itemsToScroll={1} spaceBetween={10} className='w-full '>
                      {alldata.length > 0? alldata?.map(   (item, index)=>{
                          

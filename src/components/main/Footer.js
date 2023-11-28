@@ -9,7 +9,7 @@ const FooterOne = () => {
   }
 
   return (
-    <footer className="bg-gray-500 text-white">
+    <footer className="bg-black text-white mt-40 pt-10">
       <div className="container mx-auto py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
@@ -20,7 +20,7 @@ const FooterOne = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col m-2 md:flex-row items-center">
+          <div className="w-80 flex flex-col m-2 md:flex-row items-center">
             <h5 className="follow-title mb-0 mr-4 md:mr-20">Follow Us</h5>
             <ul className="social-icon color-tertiary md-size flex justify-start space-x-0.5  ">
               <li>
@@ -47,13 +47,13 @@ const FooterOne = () => {
           </div>
         </div>
       </div>
-      <div className="copyright-area bg-gray-900 text-white">
+      <div className="copyright-area bg-black pb-5 text-white">
         <div className="container mx-auto py-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <ul className="mainmenu flex justify-start md:justify-end space-x-4">
                 <li>
-                  <Link to="/about" className="hover-flip-item-wrapper">
+                  <Link to="/Contact us" className="hover-flip-item-wrapper">
                     <span className="hover-flip-item">
                       <span data-text="Contact Us">Contact Us</span>
                     </span>
@@ -67,7 +67,7 @@ const FooterOne = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover-flip-item-wrapper">
+                  <Link to="/about us" className="hover-flip-item-wrapper">
                     <span className="hover-flip-item">
                       <span data-text="AdChoices">About Us</span>
                     </span>
