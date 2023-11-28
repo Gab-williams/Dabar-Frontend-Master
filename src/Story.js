@@ -113,6 +113,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
         setCategory(category=>cate.fields)
         setWriter(writer=>write.fields)
         setWhole(whole=>datadhj?.fields.storyId.fields)
+        //datadhj?.fields.storyId.fields.body.content
         setpara(para=>datadhj?.fields.storyId.fields.body.content)
           } catch (error) {
             console.log('Error fetching data from Contentful:', error);
