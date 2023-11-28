@@ -39,7 +39,18 @@ export default function Body() {
  
       const newData = await Promise.all(
         newstories?.items.map(async (item) => {
-          
+          let timez = new Date(item.fields.storyId.sys.createdAt)
+          const monthNames = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul",
+            "Aug", "Sept", "Oct",
+            "Nov", "Dec"
+          ];
+                
+          const day = timez.getDate();
+          const monthIndex = timez.getMonth();
+          const year = timez.getFullYear();
+          const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
            
           let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
           let writer = await client.getEntry(item.fields.storyId.fields.writerId.sys.id)
@@ -51,7 +62,8 @@ export default function Body() {
             thumbnail:item.fields.storyId.fields.thumbnail.fields.file.url,
             category: answer,
             writer:answriter,
-            id:item.sys.id
+            id:item.sys.id,
+            timez:formattedDate
            };
          })
        );
@@ -144,7 +156,7 @@ export default function Body() {
                         {item.summary.length >= 100?item.summary.substr(0, 90):item.summary}
                         <div className="w-full mt-4">
                         <span className="flex flex-row w-full sm:w-full md:w-full lg:w-10/12 float-left capitalize font-medium text-xs space-x-1 ">
-                          <a>{item.writer}</a> <a>.</a> <a>1 jan 2023</a>
+                          <a>{item.writer}</a> <a>.</a> <a>{item.timez}</a>
                         </span>
                       </div>
 

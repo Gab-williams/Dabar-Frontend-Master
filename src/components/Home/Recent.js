@@ -16,7 +16,19 @@ export default function Recent(props) {
       const fetchData = async () => {
          const newData = await Promise.all(
           newstroriesall.map(async (item) => {
-            let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
+            const monthNames = [
+              "Jan", "Feb", "Mar",
+              "Apr", "May", "Jun", "Jul",
+              "Aug", "Sept", "Oct",
+              "Nov", "Dec"
+            ];
+            let timez = new Date(item.fields.storyId.sys.createdAt)
+            // console.log(timez)
+                  
+            const day = timez.getDate();
+            const monthIndex = timez.getMonth();
+            const year = timez.getFullYear();
+            const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
 
               //console.log(item.fields.storyId.fields.writerId.sys.id)
              let data = await client.getEntry(item.fields.storyId.fields.categoryId.sys.id);
@@ -30,7 +42,7 @@ export default function Recent(props) {
                category: answer,
                writer:answriter,
                id:item.sys.id,
-               timez:timez,
+               timez:formattedDate,
              };
            })
          );

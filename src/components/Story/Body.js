@@ -8,7 +8,7 @@ export default function Body(props) {
           {/* {documentToReactComponents(para)} */}
           {para.map((item)=>{
             return item.content.map((one, index)=>{
-               return  documentToReactComponents(one)
+               return <div key={index}>{documentToReactComponents(one)}</div>
               // return<div className='text-md text-left capitalize font-regular mt-2' key={index}>
               //   {one.value}
               // </div>

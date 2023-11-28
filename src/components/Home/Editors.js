@@ -61,7 +61,19 @@ export default function Editors(props) {
     const fetchData = async () => {
       const newData = await Promise.all(
         editorall.map(async (item) => {
-          let timez = new Date(item.fields.storyId.sys.createdAt).toLocaleDateString("en-US");
+          let timez = new Date(item.fields.storyId.sys.createdAt)
+          const monthNames = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul",
+            "Aug", "Sept", "Oct",
+            "Nov", "Dec"
+          ];
+                
+          const day = timez.getDate();
+          const monthIndex = timez.getMonth();
+          const year = timez.getFullYear();
+          const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
+
           // console.log(item.fields.storyId.fields);
           let data = await client.getEntry(
             item.fields.storyId.fields.categoryId.sys.id
@@ -78,7 +90,7 @@ export default function Editors(props) {
             thumbnail: item.fields.storyId.fields.thumbnail.fields.file.url,
             writer: answriter,
             id: item.sys.id,
-            timez:timez
+            timez:formattedDate
           };
         })
       );
