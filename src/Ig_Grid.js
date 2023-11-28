@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/main/Header';
 import Body from './components/Ig_Grid/Body';
 import MobileNav from './components/Home/MobileNav';
-import Footer from './components/main/Foooter';
+import Footer from './components/main/Footer';
 
 export default function Ig_Grid() {
   const [sunmoon, setSunMoon] = useState(false);
