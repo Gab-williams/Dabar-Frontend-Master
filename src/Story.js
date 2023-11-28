@@ -6,6 +6,7 @@ import Footer from './components/main/Foooter'
 import MobileNav from './components/Home/MobileNav';
 import { useParams } from 'react-router-dom';
 import { context } from './Context';
+import Advert2 from './components/Home/Advert2';
 
 export default function Story() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -107,6 +108,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
     return (
         <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}  />
+            <Advert2 />
             <Hero whole={whole} writer={writer} category={category} datexz={datexz}/>
             <MobileNav/>
             <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc}/>
