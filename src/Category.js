@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Header from './components/main/Header'
 import Top from './components/Videos/Top'
 import Videos from './components/Videos/Videos'
-import Foooter from './components/main/Foooter'
+import Footer from './components/main/Footer'
 import MobileNav from './components/Home/MobileNav'
 export default function Category() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -24,7 +24,7 @@ export default function Category() {
           <Top/>
           <MobileNav/>
           <Videos/>
-            <Foooter/>
+            <Footer/>
         </div>
     )
 }
