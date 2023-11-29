@@ -2,7 +2,7 @@ import React,{useState, useEffect, useContext} from 'react'
 import Header from './components/main/Header';
 import Hero from "./components/Story/Hero"
 import Storypart from './components/Story/Storypart';
-import Footer from './components/main/Foooter'
+import Footer from './components/main/Footer'
 import MobileNav from './components/Home/MobileNav';
 import { Await, useParams } from 'react-router-dom';
 import { context } from './Context';
@@ -142,7 +142,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
             <Advert2 />
             <Hero whole={whole} writer={writer} category={category} datexz={datexz} mainImg={mainImg} preSummary={preSummary} timex={timex}/>
             <MobileNav/>
-            <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc} keypoints={keypoints}/>
+            <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc} keypoints={keypoints} />
             <Footer/>
         </div>
     )
