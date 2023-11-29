@@ -1,8 +1,21 @@
 import React from "react";
-import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, InstapaperShareButton, TelegramShareButton } from "react-share";
-import { FaFacebookSquare, FaTwitter, FaWhatsapp, FaInstagram, FaTelegram } from "react-icons/fa";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  InstapaperShareButton,
+  TelegramShareButton,
+} from "react-share";
+import {
+  FaFacebookSquare,
+  FaTwitter,
+  FaWhatsapp,
+  FaInstagram,
+  FaTelegram,
+} from "react-icons/fa";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 export default function Hero(props) {
   const { writer, category, datexz, whole, mainImg, preSummary, readtime } = props;
@@ -43,9 +56,9 @@ export default function Hero(props) {
         </div>
       </section>
 
-      <section className="w-full sm:w-full md:w-3/4 lg:w-3/4  p-4 ">
+      <section className="w-full sm:w-full md:w-3/4 lg:w-3/4 p-4 ">
         <div className="w-full">
-          <section className="w-full sm:w-full md:w-11/12 lg:w-auto float-left flex flex-row items-center space-x-2 mt-6">
+          <section className="w-full sm:w-full md:w-11/12 lg:w-auto float-left flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-6">
             {/* Category Button */}
             <button className="flex justify-center xs:justify-start xs:w-auto xs:inline-flex items-center text-black bg-gray-100 leading-none rounded-full font-light hover:bg-orange-200 px-3.5 py-2.5">
               {Object.keys(category).length > 0 ? (
@@ -60,16 +73,10 @@ export default function Hero(props) {
               by {writer.name || <Skeleton width={50} />}
             </a>
 
-            {/* Separator */}
-            <a className="text-xs font-regular sm:text-md lg:text-lg">-</a>
-
             {/* Read Time */}
             <a className="text-xs font-regular sm:text-md lg:text-lg sm:w-24 lg:w-auto">
               {readtime}
             </a>
-
-            {/* Separator */}
-            <a className="text-xs font-regular sm:text-md lg:text-lg">-</a>
 
             {/* Date */}
             <a className="text-xs font-regular sm:text-md lg:text-lg sm:w-24 lg:w-auto">
