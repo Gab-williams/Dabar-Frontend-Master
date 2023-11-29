@@ -14,8 +14,8 @@ const FooterOne = () => {
   }
 
   return (
-    <footer className="bg-black text-white mt-8 pb-6 sm:mt-16 pt-6 sm:pt-10">
-      <div className="container mx-auto py-4">
+    <footer className="bg-black text-white mt-8 pb-6 sm:mt-16 pt-6 sm:pt-10 sm:pb-10">
+      <div className="container mx-auto sm:mb-30 py-4">
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
           <div className="mb-4 sm:mb-4">
             <div className="w-full flex flex-col items-center sm:items-start">
@@ -94,7 +94,7 @@ const FooterOne = () => {
                 </li>
               </ul>
             </div>
-            <div className="text-center sm:text-end">
+            <div className="text-center sm:text-end ">
               <p className="b3">
                 All Rights Reserved © {new Date().getFullYear()}
               </p>
