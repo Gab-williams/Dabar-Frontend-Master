@@ -20,6 +20,47 @@ export default function MobileNav() {
     };
   }, []);
 
+  const arrx = [
+    {
+      category: 'Opinions',
+      title:'Opinions & Editorials'
+    },
+    {
+      category: 'Multimedia',
+      title:"Multimedia & Events",
+    },
+    {
+      category: 'Innovation',
+      title:'Productivity & Innovation',
+    },
+    {
+      category: 'Technology',
+      title:"Technology Trends",
+    },
+    {
+      category: 'Workplace',
+      title:"Workplace & Culture"
+    },
+    {
+      category: 'Marketing',
+      title:"Marketing & Finance"
+    },
+    {
+      category: 'Business',
+      title:'Business Insights'
+    },
+  ];
+
+  const handleCateLinkx =(title)=>{
+    let original = window.location.origin
+    window.location.href = `${original}/category-list/${title}`;
+  }
+
+  const handleContact =()=>{
+    let original = window.location.origin
+    window.location.href = `${original}/contact us`;
+
+  }
   return (
     <article className="w-full">
       <section
@@ -39,21 +80,13 @@ export default function MobileNav() {
           </span>
         </div>
         <ul className="w-full grid grid-cols-2 place-content-center">
-          <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-            <Link to="/story">story</Link>
-          </li>
-          <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-            <Link to="/about us">about us</Link>
-          </li>
-          <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-            <Link to="/team">team</Link>
-          </li>
-          <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-            <Link to="/video-category">video category</Link>
-          </li>
-          <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-            <Link to="/contact us">contact us</Link>
-          </li>
+   {arrx.map((item)=>{
+    return <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+    <a onClick={()=>handleCateLinkx(item.title)} className="cursor-pointer">{item.category}</a>
+  </li>
+   })}
+          
+       
         </ul>
       </section>
 
@@ -85,7 +118,7 @@ export default function MobileNav() {
             </button>
                 <button className="w-24 m-2 h-full w-full flex flex-row items-center px-2 py-2">
                   <RiContactsFill className="text-white mr-2" />
-                  <span className="text-xs capitalize text-white">Contact</span>
+                  <span className="text-xs capitalize text-white" onClick={()=>handleContact()}>Contact</span>
                 </button>
               </div>
            
