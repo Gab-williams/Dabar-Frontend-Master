@@ -56,52 +56,43 @@ export default function Related(props) {
     }
 
     return (
-        <div className='w-full mt-10 flex flex-col item-center'>
-
-            <section className='w-full text-lg  font-medium border-l-2 border-[#FD9005] px-2'>
-                      Related Posts
-            </section>
-
-
-               <ul className='w-full flex flex-col items-center'>
-
-                {
-                  Data.length > 0?
-                  Data.map((item, index)=>{
-                    return   <li className='w-full flex flex-row items-center mt-10' key={index} onClick={()=>handleClick(item.id)}>
-                    <span className='w-1/3'>
-                     <img src={item.thumbnail} className='w-32 h-full '/>
-                    </span>
-                    <span className='w-2/3 flex flex-col items-center p-2'>
-                    <div className="w-full mt-2">
-                        <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
-                          {item.category}
-                        </button>
-                      </div>
-                   
-                      <div className='w-full text-xs sm:text-xs md:text-xs lg:text-sm capitalize font-semibold mt-2' onClick={()=>handleClick(item.id)}>
-                      {item.summary.length > 70?item.summary.substr(0,70):item.summary}
-                      </div>
-                        
-                    </span>
+      <div className="w-full mt-10 flex flex-col items-center">
+        <section className="w-full text-lg font-medium px-2">
+          Related Posts
+        </section>
+  
+        <ul className="w-full flex flex-col items-center">
+          {Data.length > 0 ? (
+            Data.map((item, index) => (
+              <li
+                className="w-full flex flex-row items-center mt-10 cursor-pointer"
+                key={index}
+                onClick={() => handleClick(item.id)}
+              >
+                <span className="w-1/3">
+                  <img src={item.thumbnail} className="w-32 h-full" alt="Thumbnail" />
+                </span>
+                <span className="w-2/3 flex flex-col items-center p-2">
+                  <div className="w-full">
+                    <button className="font-medium capitalize text-orange-500 text-xs sm:block md:block lg:block">
+                      {item.category}
+                    </button>
+                  </div>
+  
+                  <div className="w-full text-xs sm:text-xs md:text-xs lg:text-xs capitalize font-semibold mt-2" onClick={() => handleClick(item.id)}>
+                    {item.heading.length > 170 ? item.heading.substr(0, 70) : item.heading}
+                  </div>
+                </span>
               </li>
-                  }):
-                  <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
-                  <p>
-                  <Skeleton width={100} count={7} duration={2}  />
-                  </p>
-                 </SkeletonTheme>
-                }
-
-              
-
-
-            
-
-
-         
-
-               </ul>
-        </div>
-    )
-}
+            ))
+          ) : (
+            <SkeletonTheme color="#5e6c77" highlightColor="#a9b7c1">
+              <p>
+                <Skeleton width={100} count={7} duration={2} />
+              </p>
+            </SkeletonTheme>
+          )}
+        </ul>
+      </div>
+    );
+  }
