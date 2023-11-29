@@ -34,17 +34,17 @@ export default function Feature(props) {
    console.log(alldata)
     return (
         <div className='hidden sm:hidden md:w-full md:block lg:w-full lg:block'>
-              <section className='w-11/12 min-h-full m-auto mt-3 p-6 border-t border-b border-gray'>
+              <section className='w-full min-h-full m-auto mt-3 p-6 border-t border-b border-gray'>
                 <article className='w-full flex flex-row  justify-evenly'>
                    {alldata.map((item)=>{
                      return  <div className='w-1/4' onClick={()=>handleClick(item.id)}>
                      <section className='w-full  flex flex-row items-center space-x-1'>
-                        <span className='w-2/5'>
-                           <img src={item.thumbnail} className='w-[6rem] h-[5.5rem] rounded-full'/>
+                        <span className='w-auto'>
+                           <img src={item.thumbnail} className='w-[6rem] h-[4.7rem] object-cover rounded-full'/>
                         </span>
                         <div className='w-full flex flex-col items-center'>
                            
-                            <span className='w-full py-1 px-1 text-xs font-semibold capitalize text-left  cursor-pointer' onClick={()=>handleClick(item.id)}>
+                            <span className='w-full py-1 px-1 text-sm font-semibold capitalize text-left  cursor-pointer hover:underline hover:text-black transition-colors' onClick={()=>handleClick(item.id)}>
                               {item.heading}
                             </span>
                             <span className='w-full px-1'>

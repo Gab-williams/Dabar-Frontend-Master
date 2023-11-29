@@ -17,6 +17,7 @@ import MobileNav from './components/Home/MobileNav';
 import { useNavigate } from 'react-router-dom';
 import { context } from './Context';
 import Advert2 from './components/Home/Advert2';
+import Subscrib from './components/Story/Subscrib';
 
 export default function Home() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -141,10 +142,9 @@ export default function Home() {
              <MobileNav/>
              <Advert/>
              <Editors editorall={editorall} client={client} handleClick={handleClick}/>
-             <Ash/>
              <Advert/>
              <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick}/>
-             <Report/>
+          <Subscrib/>
              <Finance financeall={financeall} client={client} handleClick={handleClick}/>
              <Footer/>
         </div>
