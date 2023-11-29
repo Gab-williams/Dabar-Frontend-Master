@@ -70,12 +70,15 @@ export default function Related(props) {
                   Data.map((item, index)=>{
                     return   <li className='w-full flex flex-row items-center mt-10' key={index} onClick={()=>handleClick(item.id)}>
                     <span className='w-1/3'>
-                     <img src={item.thumbnail} className='w-24 h-full rounded-sm'/>
+                     <img src={item.thumbnail} className='w-32 h-full '/>
                     </span>
-                    <span className='w-2/3 flex flex-col items-center'>
-                      <div className='w-full'>
-                      <button className='text-xs  float-left px-2 text-white py-2 bg-[#FD9005]'>{item.category}</button>
+                    <span className='w-2/3 flex flex-col items-center p-2'>
+                    <div className="w-full mt-2">
+                        <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
+                          {item.category}
+                        </button>
                       </div>
+                   
                       <div className='w-full text-xs sm:text-xs md:text-xs lg:text-sm capitalize font-semibold mt-2' onClick={()=>handleClick(item.id)}>
                       {item.summary.length > 70?item.summary.substr(0,70):item.summary}
                       </div>
