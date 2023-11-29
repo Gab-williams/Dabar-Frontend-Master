@@ -126,7 +126,7 @@ export default function Slider(props) {
               ))
             :
             <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
-            <p>
+            <p className="w-[97%]">
             <Skeleton width={400} count={5} duration={2}  />
             </p>
            </SkeletonTheme>

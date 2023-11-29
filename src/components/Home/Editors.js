@@ -158,8 +158,8 @@ export default function Editors(props) {
             );
           }):
           <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
-          <p>
-          <Skeleton width={1000} count={5} duration={2}  />
+          <p className="w-[80%]">
+          <Skeleton width={300} count={5} duration={2}  />
           </p>
          </SkeletonTheme>
           }
