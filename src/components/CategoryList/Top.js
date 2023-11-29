@@ -35,7 +35,7 @@ export default function Top() {
                               </ul>
                         
                         <div className='text-lg text-center flex items-center justify-center font-bold sm:text-lg sm:text-center sm:flex sm:items-center sm:justify-center sm:font-bold md:hidden lg:hidden'>
-                          Moblie Category
+                           Category
                         </div>
                         
                       {/* <ul className='w-full flex flex-col items-center'>

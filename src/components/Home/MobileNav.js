@@ -51,15 +51,20 @@ export default function MobileNav() {
     },
   ];
 
-  const handleCateLinkx =(title)=>{
+  const handleCateLinkx =()=>{
     let original = window.location.origin
-    window.location.href = `${original}/category-list/${title}`;
+    window.location.href = `${original}/category-list/Business Insights`;
   }
 
   const handleContact =()=>{
     let original = window.location.origin
     window.location.href = `${original}/contact us`;
 
+  }
+
+  const handleHome =()=>{
+    let original = window.location.origin
+    window.location.href = `${original}`; 
   }
   return (
     <article className="w-full">
@@ -103,14 +108,14 @@ export default function MobileNav() {
           <div className="w-1/4">
             <button className="h-full w-full flex flex-row items-center px-2 py-2">
               <RiHome6Fill className="text-white mr-2" />
-              <span className="text-xs capitalize text-white">home</span>
+              <span className="text-xs capitalize text-white" onClick={()=>handleHome()}>home</span>
             </button>
           </div>
           
               <div className="w-11/12 flex flex-row items-center justify-between float-right">
-                <button className="w-24 m-2 h-full w-full flex flex-row items-center px-2 py-2" onClick={() => setIsMenu(true)}>
-                  <TbCategoryFilled onClick={() => setIsMenu(true)} className="text-white mr-2" />
-                  <span className="text-xs capitalize text-white">Category</span>
+                <button className="w-24 m-2 h-full w-full flex flex-row items-center px-2 py-2" onClick={() =>handleCateLinkx()}>
+                  <TbCategoryFilled onClick={() =>handleCateLinkx()} className="text-white mr-2" />
+                  <span className="text-xs capitalize text-white" onClick={() =>handleCateLinkx()}>Category</span>
                 </button>
                 <button className="m-2 h-full w-full flex flex-row items-center px-2 py-2">
               <FaSearch className="text-white mr-2" />

@@ -67,8 +67,8 @@ export default function Category({ sunmoon, handleCate }) {
             {arrx.map((item, index) => {
               return (
                 <div
-                  className={`rounded-md h-6 relative grid place-content-center text-lg w-60 px-2 py-2
-                  sm:text-xs sm:w-60 sm:px-2 sm:py-2
+                  className={`rounded-md h-6 relative grid place-content-center text-lg w-60 px-2 py-3
+                  sm:text-xs sm:w-60 sm:px-2 sm:py-3
                   md:text-sm md:w-10/12
                   lg:text-base lg:w-10/12 capitalize font-medium ${
                     sunmoon ? 'text-white text-xs' : 'text-black text-xs'
@@ -76,7 +76,7 @@ export default function Category({ sunmoon, handleCate }) {
                   key={index}
                   onClick={()=>handleCate(item.title)}
                 >
-                  {item.category}
+                  {item.title}
                 </div>
               );
             })}
