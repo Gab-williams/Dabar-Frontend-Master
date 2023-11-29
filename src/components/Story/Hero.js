@@ -13,7 +13,7 @@ export default function Hero(props) {
       <section className="w-full text-lg sm:w-full sm:text-lg md:w-2/3 md:text-2xl lg:w-3/4 lg:text-4xl p-4 capitalize font-bold m-auto mt-20">
         {Object.keys(whole) ? (
           <>
-            <h1 className="text-xl">{whole.heading}</h1>
+            <h1 className="text-4xl">{whole.heading}</h1>
             <p className="font-medium text-gray-600 pt-3 md:text-lg">
               {preSummary || <Skeleton count={3} />}
             </p>
