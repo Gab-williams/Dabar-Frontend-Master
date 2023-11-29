@@ -110,7 +110,7 @@ export default function Slider(props) {
                   <img src={item.thumbnail} className="w-full h-96 object-cover" />
                   <article className="w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 ">
                     <div className="w-full mt-6 ml-4">
-                      <button className="w-20  text-xs float-left rounded-sm font-medium capitalize bg-[#FD9005] text-white">{item.subcategories}</button>
+                      <button className="w-30  text-xs float-left rounded-sm font-medium capitalize text-orange-400">{item.subcategories}</button>
                     </div>
 
                     <div className="w-full flex flex-col ml-4 absolute bottom-8">

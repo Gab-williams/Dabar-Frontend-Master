@@ -3,7 +3,7 @@ import Header from './components/main/Header'
 import Hero from './components/Contact/Hero'
 import Form from './components/Contact/Form'
 import Subscribe from './components/Contact/Subscribe'
-import Footer from "./components/main/Foooter"
+import Footer from "./components/main/Footer"
 import MobileNav from './components/Home/MobileNav'
 export default function Contact() {
 

@@ -47,12 +47,12 @@ export default function Body() {
       </section>
 
       <section className='w-11/12 m-auto'>
-        <div className='w-full grid grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center  gap-2 mt-5'>
+        <div className='w-full grid grid-cols-3 sm:grid sm:grid-cols-3 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 place-content-center  gap-1 mt-5'>
           {arr.map((item, index) => (
             <Link
               key={index}
               to={`/item/${index}`} // Adjust the path as needed
-              className={`w-40 sm:w-40 md:w-40 lg:w-auto ${hoveredItem === index ? 'hovered' : ''}`}
+              className={`w-auto sm:w-32 md:w-40 lg:w-auto ${hoveredItem === index ? 'hovered' : ''}`}
             >
               <div
                 className='image-container'
@@ -61,7 +61,7 @@ export default function Body() {
               >
                 <img
                   src={item.image}
-                  className='w-full h-52 sm:h-52 md:h-52 lg:h-auto'
+                  className='w-full h-auto sm:h-32 md:h-52 lg:h-auto'
                   alt={item.title}
                 />
                 {hoveredItem === index && (

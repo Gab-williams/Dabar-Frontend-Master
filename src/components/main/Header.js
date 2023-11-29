@@ -150,56 +150,7 @@ export default function Header(props) {
 </ul>
                   </span>
                 </li>
-                <li>
-                  <span className="flex flex-row space-x-1 relative">
-                    <a
-                      onClick={() => handleisPage()}
-                      className=" font-normal capitalize text-base cursor-pointer"
-                    >
-                      Pages
-                    </a>
-                    <a
-                      onClick={() => handleisPage()}
-                      className="grid place-content-center"
-                    >
-                      <MdKeyboardArrowDown className="text-base" />
-                    </a>
-
-                    <ul
-                      className={
-                        ispages
-                          ? "w-36 rounded-sm bg-white top-7 absolute flex flex-col items-center ease-in-out duration-300  shadow-md z-20"
-                          : "h-0 hidden ease-in-out duration-300 z-0"
-                      }
-                    >
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/">Home</Link>{" "}
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/story">story</Link>
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/about us">about us</Link>
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/team">team</Link>
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/video-category">video category</Link>
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/category-list">category list</Link>
-                      </li>
-                      {/* Ig-Grid */}
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/ig_grid">ig grid</Link>
-                      </li>
-                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
-                        <Link to="/contact us">contact us</Link>
-                      </li>
-                    </ul>
-                  </span>
-                </li>
+               
                 <li>
                   <span className="flex flex-row space-x-1">
                     <a className=" font-normal capitalize text-base">

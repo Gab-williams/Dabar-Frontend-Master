@@ -173,52 +173,63 @@ export default function Trending(props) {
         </div>
       </section>
       
-      <div className="w-11/12 mt-4 ">
-        <article className=" w-full grid grid-cols-1 gap-4 place-content-center sm:w-full sm:grid sm:grid-cols-1 sm:gap-9  sm:place-content-between  md:w-full md:grid md:grid-cols-1 md:gap-3 md:space-x-4 md:place-content-center lg:w-full lg:grid lg:grid-cols-4 lg:gap-y-14 lg:space-x-2 lg:place-content-center">
-          {alldata.length > 0? alldata.map((item) => {
-            return (
+      <div className="w-11/12 mt-4">
+        <article className="w-full grid gap-4 place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {alldata.length > 0 ? (
+            alldata.map((item) => (
               <section
-                className="m-auto min-h-full w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-80" onClick={()=>handleClick(item.id)} key={item.id}>
-                <div className=" w-11/12 flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
-                  <section className="   w-46 relative sm:w-auto sm:relative md:w-60  md:relative  lg:w-full lg:relative">
-                    <img
-                      src={item.thumbnail}
-                      className="w-full h-24 sm:h-auto md:h-32 lg:h-auto"
-                    />
-                  </section>
+                key={item.id}
+                className="m-auto min-h-full w-full sm:w-full lg:w-80"
+                onClick={() => handleClick(item.id)}
+              >
+                <div className="w-full flex flex-col space-y-2 p-1">
+                  <img
+                    src={item.thumbnail}
+                    className="w-full h-50 sm:h-auto lg:h-auto"
+                    alt={item.heading}
+                  />
 
-                  <article className="w-10/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
-                  <div className="w-full mt-2">
-                        <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
-                          {item.category}
-                        </button>
-                      </div>
-                   
+                  <div className="w-full">
+                    <button className="font-medium capitalize text-orange-500 text-xs sm:hidden lg:block">
+                      {item.category}
+                    </button>
+                  </div>
 
-                    <section className="w-full leading-6 tracking-tight text-base mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-lg lg:mt-3 hover:underline hover:text-black-500 transition-colors cursor-pointer font-semibold text-left capitalize" onClick={()=>handleClick(item.id)}>
+                  <div className="w-full">
+                    <section
+                      className="w-full leading-6 tracking-tight text-base sm:text-xs lg:text-lg hover:underline hover:text-black-500 transition-colors cursor-pointer font-semibold text-left capitalize"
+                      onClick={() => handleClick(item.id)}
+                    >
                       {item.heading}
                     </section>
+                  </div>
 
-                    <article className="text-xs mt-1 hidden sm:block md:hidden lg:block lg:text-sm lg:mt-3 w-full text-left capitalize text-gray-500">
-                      {item.summary.length >= 100?item.summary.substr(0, 90)+"...":item.summary}
-                    </article> 
-                    <div className="w-full mt-4">
-                    <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>{item.timez}</a></span>
+                  <div className="text-xs sm:hidden lg:block lg:text-sm">
+                    {item.summary.length >= 100
+                      ? item.summary.substr(0, 90) + "..."
+                      : item.summary}
+                  </div>
 
-                    </div>
-                  </article>
+                  <div className="w-full mt-4">
+                    <span className="flex flex-row w-full text-xs space-x-1">
+                      <a>
+                        {item.writer.length >= 15
+                          ? item.writer.substr(0, 20) + "..."
+                          : item.writer}
+                      </a>{" "}
+                      <a>.</a> <a>{item.timez}</a>
+                    </span>
+                  </div>
                 </div>
               </section>
-            );
-          }):
-          <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
-          <p className="w-10/12">
-          <Skeleton width={300} count={5} duration={2}  />
-          </p>
-         </SkeletonTheme>
-          }
-
-          
+            ))
+          ) : (
+            <SkeletonTheme color="#5e6c77" highlightColor="#a9b7c1">
+              <p className="w-full">
+                <Skeleton width={300} count={5} duration={2} />
+              </p>
+            </SkeletonTheme>
+          )}
         </article>
       </div>
     </div>

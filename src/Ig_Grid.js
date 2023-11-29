@@ -54,7 +54,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
   };
 
   return (
-    <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
+    <div className={!sunmoon ? 'w-full text-black bg-white' : 'w-full text-white bg-black'}>
       <Header sunmoon={sunmoon} setSunMoon={setSunMoon} handleSun={handleSun} />
       <MobileNav />
       <Body items={items.slice(0, visibleItems)} />
