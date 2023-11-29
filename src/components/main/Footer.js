@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaInstagram,
-  FaTwitter,
   FaLinkedin,
   FaFacebook,
 } from 'react-icons/fa6';
+import { RiTwitterXLine } from "react-icons/ri";
 import logo from '../../images/Transparent PNG-011.png';
 
 const FooterOne = () => {
@@ -33,7 +33,7 @@ const FooterOne = () => {
           </div>
           <div className="w-full sm:w-80 flex flex-col items-center sm:items-end">
             <h5 className="follow-title mb-2 sm:mb-0">Follow Us</h5>
-            <ul className="social-icon color-tertiary sm-size flex justify-center sm:justify-end space-x-2">
+            <ul className="social-icon color-tertiary sm-size flex justify-center sm:justify-end space-x-3">
               <li>
                 <a href="https://www.facebook.com/" rel="noopener" target="_blank">
                   <FaFacebook className="text-white w-6 h-6" />
@@ -46,7 +46,7 @@ const FooterOne = () => {
               </li>
               <li>
                 <a href="https://twitter.com/">
-                  <FaTwitter className="text-white w-6 h-6" />
+                  <RiTwitterXLine className="text-white w-6 h-6" />
                 </a>
               </li>
               <li>
