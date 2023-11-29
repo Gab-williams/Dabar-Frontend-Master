@@ -95,8 +95,8 @@ export default function Header(props) {
       <article
         className={
           !sunmoon
-            ? "hidden sm:hidden md:hidden lg:w-10/12  lg:flex lg:flex-row lg:items-center lg:justify-between  lg:border-b lg:border-gray lg:p-6"
-            : "hidden sm:hidden md:hidden lg:w-10/12  lg:flex lg:flex-row lg:items-center lg:justify-between  lg:border-b lg:border-white lg:p-6"
+            ? "hidden sm:hidden md:hidden lg:w-11/12  lg:flex lg:flex-row lg:items-center lg:justify-between  lg:border-b lg:border-gray-100 lg:p-6"
+            : "hidden sm:hidden md:hidden lg:w-11/12  lg:flex lg:flex-row lg:items-center lg:justify-between  lg:border-b lg:border-white lg:p-6"
         }
       >
         {/* logo and links */}

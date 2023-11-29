@@ -37,7 +37,7 @@ body{
 
 .circlex{
     position: absolute;
-    transform: translateX(175%);
+    transform: translateX(200%);
     background-color: rgb(255, 255, 255);
     transition:1s ease-in-out;  
 }
