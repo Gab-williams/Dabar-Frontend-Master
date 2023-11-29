@@ -18,10 +18,11 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { context } from '../../Context';
 
 
-export default function Body() {
+export default function Body(props) {
   const navigate = useNavigate();
   const created = useContext(context);
   let {client} = created
+  const {Skeleton, SkeletonTheme, data, setData} = props 
   // const location = useLocation();
   // console.log (location)
   let {slug} = useParams()
@@ -31,7 +32,6 @@ export default function Body() {
   const [pageSize, setpageSize] = useState(12)
   const [currentPage, setcurrentPage] = useState(1);
   const [pagex, setpage] = useState(1)
-  const [data, setData] = useState([])
   const [wholearr, setWholearr] = useState([])
   const recentstories = async()=>{
     let newstories = await client.getEntries({content_type:'currentstories',  select:'fields'})
@@ -86,13 +86,13 @@ export default function Body() {
 
 
   useEffect(()=>{
- const intervalId = setInterval(() => {
+//  const intervalId = setInterval(() => {
     recentstories();
-  },5000)
+  // },5000)
 
-  return () => {
-    clearInterval(intervalId);
-  };
+  // return () => {
+  //   clearInterval(intervalId);
+  // };
   },[])
 
   // console.log(data)
@@ -166,7 +166,12 @@ export default function Body() {
                 </section>
               );
             }):
-            <section className='h-96 text-center grid place-content-center m-auto text-2xl capitalize w-full '>this data is not availiable</section>
+            <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
+            <p>
+            <Skeleton width={1000} count={5} duration={2}  />
+            </p>
+           </SkeletonTheme>
+
             }
           </article>
         </div>

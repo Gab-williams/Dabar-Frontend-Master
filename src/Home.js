@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 import { context } from './Context';
 import Advert2 from './components/Home/Advert2';
 import Subscrib from './components/Story/Subscrib';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 export default function Home() {
     const [sunmoon, setSunMoon] = useState(false)
@@ -135,17 +136,17 @@ export default function Home() {
         <div className={!sunmoon?'text-black bg-white':'text-white bg-black'}>
              <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun} />
              <Advert2 />
-             <Slider topstories={topstories} client={client} sunmoon={sunmoon} handleClick={handleClick}/>
-             <Category/>
-             <Feature client={client} featurestories={featurestories} handleClick={handleClick}/>
-             <Trending sunmoon={sunmoon} tendall={tendall} client={client} handleClick={handleClick}/>
+             <Slider topstories={topstories} client={client} sunmoon={sunmoon} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
+             {/* <Category/> */}
+             <Feature client={client} featurestories={featurestories} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
+             <Trending sunmoon={sunmoon} tendall={tendall} client={client} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
              <MobileNav/>
              <Advert/>
-             <Editors editorall={editorall} client={client} handleClick={handleClick}/>
+             <Editors editorall={editorall} client={client} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
              <Advert/>
-             <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick}/>
+             <Recent newstroriesall={newstroriesall} client={client} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
           <Subscrib/>
-             <Finance financeall={financeall} client={client} handleClick={handleClick}/>
+             <Finance financeall={financeall} client={client} handleClick={handleClick} Skeleton={Skeleton} SkeletonTheme={SkeletonTheme}/>
              <Footer/>
         </div>
     )

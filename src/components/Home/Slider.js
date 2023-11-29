@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel';
 import Skeleton from 'react-loading-skeleton';
 
 export default function Slider(props) {
-  const { sunmoon, topstories, client, handleClick } = props;
+  const { sunmoon, topstories, client, handleClick, Skeleton, SkeletonTheme } = props;
 
   const carouselRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -84,9 +84,13 @@ export default function Slider(props) {
                   </article>
                 </div>
               ))
-            : Array.from({ length: 3 }).map((_, index) => (
-                <Skeleton key={index} height={360} style={{ borderRadius: '8px' }} />
-              ))}
+            :
+            <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
+            <p>
+            <Skeleton width={1000} count={5} duration={2}  />
+            </p>
+           </SkeletonTheme>
+            }
         </Carousel>
       </article>
       {/* large screen  */}
@@ -95,18 +99,18 @@ export default function Slider(props) {
       <article
         className={
           !sunmoon
-            ? 'w-full mt-10 border-b border-black p-6  sm:w-full sm:mt-10 sm:border-b sm:border-gray sm:p-6  md:w-full md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden'
-            : 'w-full mt-10 border-b border-white p-6 sm:w-11/12 sm:mt-10 sm:border-g sm:border-white sm:p-6 md:w-11/12 md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
+            ? 'w-full mt-10 border-b border-black p-6  sm:w-full sm:mt-10 sm:border-b sm:border-gray  sm:p-6  md:w-full md:h-[29rem] md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden'
+            : 'w-full mt-10 border-b border-white p-6  sm:w-11/12 sm:mt-10  sm:border-g sm:border-white sm:p-6 md:w-11/12 md:h-[29rem] md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
         }
       >
         <Carousel showArrows={false} pagination={false} itemsToShow={1.5} itemsToScroll={1} spaceBetween={10} className="w-full ">
           {alldata.length > 0
             ? alldata?.map((item, index) => (
-                <div key={index} className="w-[97%]  h-96  rounded-md grid place-content-center text-2xl text-black relative">
-                  <img src={item.thumbnail} className="w-full h-full" />
+                <div key={index} className="w-[97%]  h-full  rounded-md grid place-content-center text-2xl text-black relative">
+                  <img src={item.thumbnail} className="w-full h-96 object-cover" />
                   <article className="w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 ">
                     <div className="w-full mt-6 ml-4">
-                      <button className="w-20 h-6 text-xs float-left rounded-sm font-medium capitalize bg-[#FD9005] text-white">{item.subcategories}</button>
+                      <button className="w-20  text-xs float-left rounded-sm font-medium capitalize bg-[#FD9005] text-white">{item.subcategories}</button>
                     </div>
 
                     <div className="w-full flex flex-col ml-4 absolute bottom-8">
@@ -120,9 +124,13 @@ export default function Slider(props) {
                   </article>
                 </div>
               ))
-            : Array.from({ length: 3 }).map((_, index) => (
-                <Skeleton key={index} height={240} style={{ borderRadius: '8px' }} />
-              ))}
+            :
+            <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
+            <p>
+            <Skeleton width={400} count={5} duration={2}  />
+            </p>
+           </SkeletonTheme>
+            }
         </Carousel>
       </article>
     </div>

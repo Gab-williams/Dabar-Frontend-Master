@@ -5,7 +5,7 @@ import { FaInstagram, FaWhatsapp, FaTelegram  } from "react-icons/fa";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 export default function Hero(props) {
-   const {writer, category, datexz, whole, mainImg, preSummary} = props
+   const {writer, category, datexz, whole, mainImg, preSummary, readtime} = props
    const handleShare = async () => {
     try {
       if (navigator.share) {
@@ -54,7 +54,7 @@ export default function Hero(props) {
 
           {/* Read Time */}
           <a className="text-xs font-regular sm:text-md lg:text-lg sm:w-24 lg:w-auto">
-            2 minute read 
+           {readtime}
           </a>
 
           {/* Separator */}

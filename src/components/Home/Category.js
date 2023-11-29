@@ -1,30 +1,45 @@
 import React, { useRef, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 
-export default function Category({ sunmoon }) {
+export default function Category({ sunmoon, handleCate }) {
   const arrx = [
     {
-      category: 'Top',
+      category: 'Opinions',
+      title:'Opinions & Editorials'
     },
     {
-      category: 'Popular',
+      category: 'Multimedia',
+      title:"Multimedia & Events",
     },
     {
-      category: 'Trending',
+      category: 'Innovation',
+      title:'Productivity & Innovation',
     },
     {
       category: 'Technology',
+      title:"Technology Trends",
     },
     {
-      category: 'Finance',
+      category: 'Workplace',
+      title:"Workplace & Culture"
     },
     {
-      category: 'Fashion',
+      category: 'Marketing',
+      title:"Marketing & Finance"
     },
     {
-      category: 'Abstract',
+      category: 'Business',
+      title:'Business Insights'
     },
   ];
+
+//   Opinions & Editorials
+// Multimedia & Events
+// Productivity & Innovation
+// Workplace & Culture
+// Marketing & Finance
+// Technology Trends
+// Business Insights
 
   const carouselRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,9 +71,10 @@ export default function Category({ sunmoon }) {
                   sm:text-xs sm:w-60 sm:px-2 sm:py-2
                   md:text-sm md:w-10/12
                   lg:text-base lg:w-10/12 capitalize font-medium ${
-                    sunmoon ? 'text-white text-sm' : 'text-black text-sm'
+                    sunmoon ? 'text-white text-xs' : 'text-black text-xs'
                   }`}
                   key={index}
+                  onClick={()=>handleCate(item.title)}
                 >
                   {item.category}
                 </div>

@@ -6,7 +6,7 @@ import React,{useEffect, useState} from "react";
 // import piceight from '../../images/phone.png';
 
 export default function Recent(props) {
-  const { newstroriesall, client, handleClick } = props;
+  const { newstroriesall, client, handleClick, Skeleton, SkeletonTheme } = props;
     
    
     const [alldata, setallData] = useState([])  
@@ -70,7 +70,7 @@ export default function Recent(props) {
 
                 <div className="w-11/12 mt-4 ">
         <article className=" w-full grid grid-cols-1 gap-4 place-content-center sm:w-full sm:grid sm:grid-cols-1 sm:gap-9  sm:place-content-between  md:w-full md:grid md:grid-cols-1 md:gap-3 md:space-x-4 md:place-content-center lg:w-full lg:grid lg:grid-cols-4 lg:gap-y-14 lg:space-x-2 lg:place-content-center">
-          {alldata.map((item) => {
+          {alldata.length > 0? alldata.map((item) => {
             return (
               <section
                 className="m-auto min-h-full w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-80" onClick={()=>handleClick(item.id)} key={item.id}>
@@ -95,7 +95,7 @@ export default function Recent(props) {
                     </section>
 
                     <article className="text-xs mt-1 hidden sm:block md:hidden lg:block lg:text-sm lg:mt-3 w-full text-left capitalize text-gray-500">
-                      {item.summary.length >= 100?item.summary.substr(0, 90):item.summary}
+                      {item.summary.length >= 100?item.summary.substr(0, 80)+"...":item.summary}
                     </article> 
                     <div className="w-full mt-4">
                     <span className='flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1'><a>{item.writer.length >= 15?item.writer.substr(0, 20)+"...":item.writer }</a> <a>.</a> <a>{item.timez}</a></span>
@@ -105,7 +105,13 @@ export default function Recent(props) {
                 </div>
               </section>
             );
-          })}
+          }):
+          <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
+          <p>
+          <Skeleton width={1000} count={5} duration={2}  />
+          </p>
+         </SkeletonTheme>
+          }
 
           
         </article>

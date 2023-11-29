@@ -23,6 +23,7 @@ export default function Story() {
     const [keypoints, setkeypoints] = useState([])
     const [preSummary, setPreSummary] = useState("")
     const [timex, settimex] = useState("")
+    const [readtime, setreadtime] = useState("")
    const {slug} = useParams();
    let {client, setidstory} = created
 
@@ -86,17 +87,24 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
         try {
            
             const datadhj = await client.getEntry(slug);
-          console.log(datadhj.fields.storyId.fields)
+        //   console.log(datadhj.fields.storyId.fields.readTime)
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             let timez = new Date(datadhj?.sys.createdAt).toLocaleDateString("en-US", options);
             //console.log(timez)
             settimex(timex=>timez)
             setDatexz(datexz=>timez)
+
+            if(datadhj.fields.storyId.fields.readTime != undefined){
+                setreadtime(datadhj.fields.storyId.fields.readTime)
+            }else{
+                setreadtime('4 Minutes')
+            }
+
       let write = await client.getEntry(datadhj.fields.storyId.fields.writerId.sys.id)
-         console.log(write)
+        //  console.log(write)
         let cate = await client.getEntry(datadhj.fields.storyId.fields.categoryId.sys.id)
-       let pre = datadhj?.fields.storyId.fields.preSummary
-       console.log(datadhj?.fields.storyId.fields.keypoints)
+       let pre = datadhj?.fields.storyId.fields.summary.length > 80?datadhj?.fields.storyId.fields.summary.substr(0,80)+"...":datadhj?.fields.storyId.fields.summary
+        //  console.log(datadhj?.fields.storyId.fields)
        if(datadhj?.fields.storyId.fields.keypoints.content != undefined){
         setkeypoints(keypoints=>datadhj?.fields.storyId.fields.keypoints.content)
        }else{
@@ -140,7 +148,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
         <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
             <Header sunmoon={sunmoon} setSunMoon={setSunMoon}  handleSun={handleSun}  />
             <Advert2 />
-            <Hero whole={whole} writer={writer} category={category} datexz={datexz} mainImg={mainImg} preSummary={preSummary} timex={timex}/>
+            <Hero whole={whole} writer={writer} category={category} datexz={datexz} mainImg={mainImg} preSummary={preSummary} timex={timex} readtime={readtime}/>
             <MobileNav/>
             <Storypart writer={writer} para={para} client={client} category={category} solidfc={solidfc} keypoints={keypoints} />
             <Footer/>

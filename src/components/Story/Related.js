@@ -3,6 +3,7 @@ import React,{useEffect, useState} from 'react'
 // import picone from '../../related img/boxing.png'
 // import picthree from '../../related img/plant.png'
 import { useNavigate } from 'react-router-dom';
+import Skeleton,{SkeletonTheme} from 'react-loading-skeleton'
 
 export default function Related(props) {
  const [Data, setData] = useState([])
@@ -30,20 +31,24 @@ export default function Related(props) {
            };
          })
        );
-         let filterdata = newData.filter((item)=>item.category == category)
-        
-         setData(filterdata)
+
+       const shuffledArray = newData.slice().sort(() => Math.random() - 0.5);
+        let arrx =  shuffledArray.slice(0, 4);  
+        // console.log(arrx)
+        // setData(Data=>arrx)
+        setData(arrx)
   }
 
 
   useEffect(()=>{
-    const intervalId = setInterval(() => {
-       recentstories();
-     },5000)
+    recentstories();
+    // const intervalId = setInterval(() => {
+     
+    //  },5000)
    
-     return () => {
-       clearInterval(intervalId);
-     };
+    //  return () => {
+    //    clearInterval(intervalId);
+    //  };
      },[])
 
      const handleClick = (id)=>{
@@ -61,6 +66,7 @@ export default function Related(props) {
                <ul className='w-full flex flex-col items-center'>
 
                 {
+                  Data.length > 0?
                   Data.map((item, index)=>{
                     return   <li className='w-full flex flex-row items-center mt-10' key={index} onClick={()=>handleClick(item.id)}>
                     <span className='w-1/3'>
@@ -76,7 +82,12 @@ export default function Related(props) {
                         
                     </span>
               </li>
-                  })
+                  }):
+                  <SkeletonTheme  color="#5e6c77" highlightColor="#a9b7c1">
+                  <p>
+                  <Skeleton width={100} count={7} duration={2}  />
+                  </p>
+                 </SkeletonTheme>
                 }
 
               
