@@ -84,13 +84,7 @@ const FooterOne = () => {
                     </span>
                   </Link>
                 </li>
-                <li>
-                  <Link to="#" className="hover-flip-item-wrapper">
-                    <span className="hover-flip-item">
-                      <span data-text="Advertise with Us">Advertise with Us</span>
-                    </span>
-                  </Link>
-                </li>
+               
                 <li>
                   <Link to="#" className="hover-flip-item-wrapper">
                     <span className="hover-flip-item">

@@ -356,9 +356,9 @@ export default function Header(props) {
 
           <span className="w-1/3 ">
             <article className="w-full flex flex-row items-center justify-between">
-              <a className="w-4">
+              {/* <a className="w-4">
                 <BsSearch className="w-full h-full text-sm" />
-              </a>
+              </a> */}
 
               <div
                 onClick={(e) => handleSun(e)}
