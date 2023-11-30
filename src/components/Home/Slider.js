@@ -99,8 +99,8 @@ export default function Slider(props) {
       <article
         className={
           !sunmoon
-            ? 'w-full mt-10 border-b border-black p-6  sm:w-full sm:mt-10 sm:border-b sm:border-gray  sm:p-6  md:w-full md:h-[29rem] md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden'
-            : 'w-full mt-10 border-b border-white p-6  sm:w-11/12 sm:mt-10  sm:border-g sm:border-white sm:p-6 md:w-11/12 md:h-[29rem] md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
+            ? 'w-full mt-10 border-b border-black p-1.5  sm:w-full sm:mt-10 sm:border-b sm:border-gray  sm:p-6  md:w-full md:h-[29rem] md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden'
+            : 'w-full mt-10 border-b border-white p-1.5  sm:w-full sm:mt-10  sm:border-g sm:border-white sm:p-6 md:w-11/12 md:h-[29rem] md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
         }
       >
         <Carousel showArrows={false} pagination={false} itemsToShow={1.5} itemsToScroll={1} spaceBetween={10} className="w-full ">

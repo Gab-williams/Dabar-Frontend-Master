@@ -245,31 +245,26 @@ export default function Header(props) {
       <section className="hidden sm:hidden md:w-10/12 md:block lg:hidden">
         <div className="w-full flex flex-row items-center justify-between">
           <article className=" w-1/3 flex flex-row items-center  space-x-6">
-            <a className="w-8 h-8 rounded-sm bg-gray-300 grid place-content-center">
-              <GiHamburgerMenu className=" text-2xl text-black" />
-            </a>
+           
 
-            <span className="h-10 w-24">
+            <span className="h-10 w-auto">
               <img src={!sunmoon ? logo : logotwo} className="w-full h-full" />
             </span>
           </article>
+          
 
           <article className="w-1/4 flex flex-row items-center justify-between">
             <div className="flex flex-row items-center space-x-2">
-              <span>
+              {/* <span>
                 <img src={userpic} className="h-10 w-10 rounded-sm " />
-              </span>
-              <div className="flex flex-row items-center space-x-1">
+              </span> */}
+              {/* <div className="flex flex-row items-center space-x-1">
                 <a>Stephen</a>
                 <a>
                   <MdOutlineKeyboardArrowDown />
                 </a>
-              </div>
+              </div> */}
             </div>
-
-            <a className="w-8 h-8 rounded-sm bg-gray-300 grid place-content-center">
-              <FaBookmark className=" text-2xl text-black" />
-            </a>
           </article>
         </div>
       </section>

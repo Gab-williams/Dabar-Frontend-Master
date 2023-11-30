@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/main/Header';
 import Body from './components/Ig_Grid/Body';
 import MobileNav from './components/Home/MobileNav';
-import Footer from './components/main/Footer';
+import Footer from './components/main/Foooter';
 
 export default function Ig_Grid() {
   const [sunmoon, setSunMoon] = useState(false);
@@ -54,7 +54,7 @@ let dataa = localStorage.getItem('btn')?JSON.parse(localStorage.getItem('btn')):
   };
 
   return (
-    <div className={!sunmoon ? 'w-full text-black bg-white' : 'w-full text-white bg-black'}>
+    <div className={!sunmoon?'w-full text-black bg-white':' w-full text-white bg-black'}>
       <Header sunmoon={sunmoon} setSunMoon={setSunMoon} handleSun={handleSun} />
       <MobileNav />
       <Body items={items.slice(0, visibleItems)} />
