@@ -119,7 +119,7 @@ export default function Header(props) {
                       onClick={() => handleCategoriesToggle()}
                       className=" font-normal capitalize text-base cursor-pointer"
                     >
-                      Catagories
+                      Categories
                     </a>
                     <a
                       onClick={() => handleCategoriesToggle()}
