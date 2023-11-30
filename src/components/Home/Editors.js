@@ -136,7 +136,7 @@ export default function Editors(props) {
                   key={item.id}
                 >
                   <div className=" w-11/12 flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
-                    <section className="w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
+                    <section className="w-72 relative sm:w-72 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                       <img
                         src={item.thumbnail}
                         className="w-full h-24 sm:h-auto md:h-32 lg:h-auto"
@@ -144,7 +144,7 @@ export default function Editors(props) {
                     </section>
 
                     <article className="w-full flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-start md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
-                      <div className="w-full">
+                      <div className="w-full mt-2">
                         <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
                           {item.category}
                         </button>

@@ -26,26 +26,6 @@ body{
     background-color:rgb(33, 33, 33); 
 }
 
-/* Media query for devices with a maximum width of 767px (typical for mobile devices) */
-@media (max-width: 767px) {
-    .circle{
-        position: absolute;
-         transform: translateX(-14%);
-        background-color: rgb(0, 0, 0);
-        transition:1s ease-in-out;
-        
-    }
-    
-    
-    .circlex{
-        position: absolute;
-        transform: translateX(115%);
-        background-color: rgb(255, 255, 255);
-        transition:1s ease-in-out;  
-    }
-
-
-}
 
 .circle{
     position: absolute;
