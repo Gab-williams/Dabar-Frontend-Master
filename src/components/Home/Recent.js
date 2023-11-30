@@ -119,7 +119,7 @@ export default function Recent(props) {
                           ? item.summary.substr(0, 80) + "..."
                           : item.summary}
                       </article>
-                      <div className="w-full mt-4">
+                      <div className="w-full mt-4 hidden sm:block">
                         <span className="flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1">
                           <a>
                             {item.writer.length >= 15

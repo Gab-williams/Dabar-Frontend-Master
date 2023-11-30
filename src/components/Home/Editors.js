@@ -143,15 +143,15 @@ export default function Editors(props) {
                       />
                     </section>
 
-                    <article className="w-11/12 flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-center md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
-                      <div className="w-full mt-2">
+                    <article className="w-full flex flex-col items-center  sm:w-full sm:flex sm:flex-col sm:items-start md:w-11/12 md:flex md:flex-col md:items-center  lg:w-full lg:flex lg:flex-col lg:items-center">
+                      <div className="w-full">
                         <button className="font-medium capitalize text-orange-500 text-xs hidden sm:block md:block lg:block">
                           {item.category}
                         </button>
                       </div>
 
                       <section
-                        className="w-full leading-6 tracking-tight text-sm mt-1 sm:text-xs sm:mt-1 md:text-xs md:mt-1 lg:text-lg lg:mt-3 hover:underline hover:text-black-500 transition-colors cursor-pointer font-semibold text-left capitalize"
+                        className="w-full leading-6 item start tracking-tight text-sm sm:text-xs sm:item-start md:text-xs md:mt-1 lg:text-lg lg:mt-3 hover:underline hover:text-black-500 transition-colors cursor-pointer font-semibold text-left capitalize"
                         onClick={() => handleClick(item.id)}
                       >
                         {item.heading}
@@ -162,7 +162,7 @@ export default function Editors(props) {
                           ? item.summary.substr(0, 80) + "..."
                           : item.summary}
                       </article>
-                      <div className="w-full mt-4">
+                      <div className="w-full mt-4 hidden sm:block">
                         <span className="flex flex-row w-full sm:w-full md:w-full lg:w-3/4 float-left capitalize font-medium text-xs space-x-1">
                           <a>
                             {item.writer.length >= 15

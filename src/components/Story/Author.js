@@ -7,14 +7,14 @@ import {AiFillGithub} from 'react-icons/ai'
 export default function Author(props) {
     const {writer} = props
     return (
-        <div className='w-full  flex flex-col items-center bg-gray-100 border border-gray-400 mt-9 sm:mt-5 md:mt-5 lg:mt-0'>
+        <div className='w-full  flex flex-col items-center border border-gray-400 mt-9 sm:mt-5 md:mt-5 lg:mt-0'>
             
            
 
             <span className='w-20 rounded-full mt-5'>
                 <img src={person} className='w-full h-full' />
             </span>
-            <span className='w-full mt-4 text-black text-center capitalize font-medium'>
+            <span className='w-full mt-4 text-center capitalize font-medium'>
               {Object.keys(writer).length > 0? writer.name:""}
             </span>
 

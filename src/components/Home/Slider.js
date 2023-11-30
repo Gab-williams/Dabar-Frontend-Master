@@ -76,7 +76,7 @@ export default function Slider(props) {
         >
           {alldata.length > 0
             ? alldata?.map((item, index) => (
-                <div className="w-[97%]  h-10 h-screen rounded-md grid place-content-center text-2xl text-black relative" key={index} onClick={() => handleClick(item.id)}>
+                <div className="w-[97%]  h-10 h-screen rounded-md grid place-content-center text-2xl text-black relative cursor-pointer" key={index}>
                   <img src={item.thumbnail} className="w-full h-screen object-cover" />
                   <article className="w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 ">
                     <div className="w-full mt-6 ml-4">
@@ -105,18 +105,19 @@ export default function Slider(props) {
       </article>
       {/* large screen  */}
 
-      {/* Small screen */}
-      <article
+ 
+{/* Small screen */}
+<article
         className={
           !sunmoon
-            ? 'w-full mt-2 border-b border-black p-1.5  sm:w-full sm:mt-10 sm:border-b sm:border-gray  sm:p-6  md:w-full md:h-[29rem] md:mt-10 md:border-b md:border-gray md:p-6 lg:hidden'
-            : 'w-full mt-2 border-b border-white p-1.5  sm:w-full sm:mt-10  sm:border-g sm:border-white sm:p-6 md:w-11/12 md:h-[29rem] md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
+            ? 'w-full mt-2 border-b border-black p-1.5 pb-5 sm:w-full sm:mt-10 sm:border-b sm:border-gray  sm:p-6 md:w-full md:h-[29rem] md:mt-10 md:border-b  md:border-gray md:p-6 lg:hidden'
+            : 'w-full mt-2 border-b border-white p-1.5 pb-5 sm:w-full sm:mt-10  sm:border-g sm:border-white sm:p-6  md:w-11/12 md:h-[29rem] md:mt-10 md:border-b md:border-white md:p-6 lg:hidden'
         }
       >
-        <Carousel showArrows={false} pagination={false} itemsToShow={1.5} itemsToScroll={1} spaceBetween={10} className="w-full ">
+        <Carousel enableSwipe={true} showArrows={false} pagination={false} itemsToShow={1.5} itemsToScroll={1} spaceBetween={10} className="w-full ">
           {alldata.length > 0
             ? alldata?.map((item, index) => (
-                <div key={index} className="w-[97%]  h-full  rounded-md grid place-content-center text-2xl text-black relative">
+                <div key={index} className="w-[97%]  h-full  rounded-md grid place-content-center text-xl text-black relative" onClick={() => handleClick(item.id)}>
                   <img src={item.thumbnail} className="w-full h-96 object-cover" />
                   <article className="w-full h-full absolute bg-cover bg-black bg-opacity-10 right-0 left-0 bottom-0 top-0 ">
                     <div className="w-full mt-6 ml-4">
@@ -124,10 +125,10 @@ export default function Slider(props) {
                     </div>
 
                     <div className="w-full flex flex-col ml-4 absolute bottom-8">
-                      <article className="w-4/5 flex flex-row items-center space-x-1 text-white text-sm font-medium">
+                      <article className="w-4/5 flex flex-row items-center space-x-1 text-white text-xs font-medium">
                       <a>{item.timez}</a>
                       </article>
-                      <section className="w-4/5 text-sm text-white font-semibold capitalize">{item.heading}</section>
+                      <section className="w-4/5 text-xs text-white font-medium capitalize">{item.heading}</section>
                     </div>
                   </article>
                 </div>
