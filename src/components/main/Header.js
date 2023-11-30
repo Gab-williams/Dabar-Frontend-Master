@@ -119,7 +119,7 @@ export default function Header(props) {
                       onClick={() => handleCategoriesToggle()}
                       className=" font-normal capitalize text-base cursor-pointer"
                     >
-                      Categories
+                      Catagories
                     </a>
                     <a
                       onClick={() => handleCategoriesToggle()}
@@ -150,7 +150,56 @@ export default function Header(props) {
 </ul>
                   </span>
                 </li>
-               
+                <li>
+                  <span className="flex flex-row space-x-1 relative">
+                    <a
+                      onClick={() => handleisPage()}
+                      className=" font-normal capitalize text-base cursor-pointer"
+                    >
+                      Pages
+                    </a>
+                    <a
+                      onClick={() => handleisPage()}
+                      className="grid place-content-center"
+                    >
+                      <MdKeyboardArrowDown className="text-base" />
+                    </a>
+
+                    <ul
+                      className={
+                        ispages
+                          ? "w-36 rounded-sm bg-white top-7 absolute flex flex-col items-center ease-in-out duration-300  shadow-md z-20"
+                          : "h-0 hidden ease-in-out duration-300 z-0"
+                      }
+                    >
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/">Home</Link>{" "}
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/story">story</Link>
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/about us">about us</Link>
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/team">team</Link>
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/video-category">video category</Link>
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/category-list">category list</Link>
+                      </li>
+                      {/* Ig-Grid */}
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/ig_grid">ig grid</Link>
+                      </li>
+                      <li className="w-full p-1 text-sm text-left font-medium capitalize text-black">
+                        <Link to="/contact us">contact us</Link>
+                      </li>
+                    </ul>
+                  </span>
+                </li>
                 <li>
                   <span className="flex flex-row space-x-1">
                     <a className=" font-normal capitalize text-base">
@@ -245,14 +294,67 @@ export default function Header(props) {
       <section className="hidden sm:hidden md:w-10/12 md:block lg:hidden">
         <div className="w-full flex flex-row items-center justify-between">
           <article className=" w-1/3 flex flex-row items-center  space-x-6">
-           
+            {/* <a className="w-8 h-8 rounded-sm bg-gray-300 grid place-content-center ">
+              <GiHamburgerMenu className=" text-2xl text-black" />
+            </a> */}
 
-            <span className="h-10 w-auto">
+            <span className="h-10 w-24">
               <img src={!sunmoon ? logo : logotwo} className="w-full h-full" />
             </span>
           </article>
-          
-          <article
+
+          {/* <article className="w-1/4 flex flex-row items-center justify-between">
+            <div className="flex flex-row items-center space-x-2">
+              <span>
+                <img src={userpic} className="h-10 w-10 rounded-sm " />
+              </span>
+              <div className="flex flex-row items-center space-x-1">
+                <a>Stephen</a>
+                <a>
+                  <MdOutlineKeyboardArrowDown />
+                </a>
+              </div>
+            </div>
+
+            <a className="w-8 h-8 rounded-sm bg-gray-300 grid place-content-center">
+              <FaBookmark className=" text-2xl text-black" />
+            </a>
+          </article> */}
+           <article className={ sunmoon?"w-1/6 flex flex-row items-center border border-white  rounded-full justify-between relative p-1":"w-1/6 flex flex-row items-center border border-black  rounded-full justify-between relative p-1"}>
+                  <button className="w-1/3 h-full ">
+                    <MdOutlineWbSunny
+                      className={
+                        sunmoon
+                          ? "w-full h-full text-2xl text-white"
+                          : "w-full h-full text-2xl text-black"
+                      }
+                    />
+                  </button>
+                  <button
+                    onClick={(e) => handleSun(e)}
+                    className={
+                      !sunmoon
+                        ? "rounded-full w-10 h-10 circle"
+                        : "rounded-full w-10 h-10 circlex"
+                    }
+                  ></button>
+
+                  <button className="w-1/3 h-full ">
+                    <BsMoon
+                      className={
+                        !sunmoon
+                          ? "w-full h-full text-2xl text-black"
+                          : "w-full h-full text-2xl text-white"
+                      }
+                    />
+                  </button>
+                </article>
+
+
+        </div>
+      </section>
+
+      <article
         className={
           !sunmoon
             ? "hidden sm:hidden md:w-10/12 md:bg-[#F5F5F5] md:rounded-md md:px-1 md:py-1 md:mt-2 lg:hidden"
@@ -272,59 +374,8 @@ export default function Header(props) {
           <a className="w-24 grid place-content-center">
             <BsSearch className="w-full h-full text-sm" />
           </a>
-          <span className="w-1/3 ">
-            <article className="w-full flex flex-row items-center justify-between">
-              <a className="w-4">
-                {/* <BsSearch className="w-full h-full text-sm" /> */}
-              </a>
-
-              <div
-                onClick={(e) => handleSun(e)}
-                className={
-                  !sunmoon
-                    ? "w-auto border-2  border-black relative rounded-full change"
-                    : "w-auto border-2 border-white relative rounded-full changex"
-                }
-              >
-                <article className="w-full flex flex-row items-center  justify-between relative p-1 ">
-                  <button className="w-1/3 h-full ">
-                    <MdOutlineWbSunny
-                      className={
-                        sunmoon
-                          ? "w-full h-full text-2xl text-white"
-                          : "w-full h-full text-2xl text-black"
-                      }
-                    />
-                  </button>
-                  <button
-                    onClick={(e) => handleSun(e)}
-                    className={
-                      !sunmoon
-                        ? "rounded-full w-6 h-6 circle"
-                        : "rounded-full w-6 h-6 circlex"
-                    }
-                  ></button>
-
-                  <button className="w-1/3 h-full ">
-                    <BsMoon
-                      className={
-                        !sunmoon
-                          ? "w-full h-full text-2xl text-black"
-                          : "w-full h-full text-2xl text-white"
-                      }
-                    />
-                  </button>
-                </article>
-              </div>
-            </article>
-          </span>
         </div>
       </article>
-         
-        </div>
-      </section>
-
-      
       {/* tablet screen */}
 
       {/* small screen */}
@@ -336,8 +387,8 @@ export default function Header(props) {
 
           <span className="w-1/3 ">
             <article className="w-full flex flex-row items-center justify-between">
-              <a className="w-4">
-                {/* <BsSearch className="w-full h-full text-sm" /> */}
+              <a className="w-4 hidden sm:hidden md:hidden lg:block">
+                <BsSearch className="w-full h-full text-sm" />
               </a>
 
               <div
