@@ -16,7 +16,7 @@ const FooterOne = () => {
   return (
     <footer className="bg-black text-white mt-8 pb-6 sm:mt-16 pt-6 sm:pt-10 sm:pb-10">
       <div className="container mx-auto sm:mb-30 py-4">
-        <div className="flex flex-col items-center sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-start sm:flex-row sm:justify-between">
           <div className="mb-4 sm:mb-4">
             <div className="w-full flex flex-col items-center sm:items-start">
               <img
@@ -32,26 +32,26 @@ const FooterOne = () => {
             </div>
           </div>
           <div className="w-full sm:w-80 flex flex-col items-center sm:items-end">
-            <h5 className="follow-title mb-2 sm:mb-0">Follow Us</h5>
-            <ul className="social-icon color-tertiary sm-size flex justify-center sm:justify-end space-x-3">
+            <h5 className="items-center follow-title pb-5 sm:mb-0">Follow Us</h5>
+            <ul className="social-icon color-tertiary sm-size flex justify-center sm:justify-end space-x-6 ">
               <li>
                 <a href="https://www.facebook.com/" rel="noopener" target="_blank">
-                  <FaFacebook className="text-white w-6 h-6" />
+                  <FaFacebook className="text-white w-8 h-8" />
                 </a>
               </li>
               <li>
                 <a href="https://www.instagram.com/">
-                  <FaInstagram className="text-white w-6 h-6" />
+                  <FaInstagram className="text-white w-8 h-8" />
                 </a>
               </li>
               <li>
                 <a href="https://twitter.com/">
-                  <RiTwitterXLine className="text-white w-6 h-6" />
+                  <RiTwitterXLine className="text-white w-8 h-8" />
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/">
-                  <FaLinkedin className="text-white w-6 h-6" />
+                  <FaLinkedin className="text-white w-8 h-8" />
                 </a>
               </li>
             </ul>
