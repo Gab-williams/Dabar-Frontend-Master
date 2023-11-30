@@ -252,24 +252,7 @@ export default function Header(props) {
             </span>
           </article>
           
-
-          <article className="w-1/4 flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center space-x-2">
-              {/* <span>
-                <img src={userpic} className="h-10 w-10 rounded-sm " />
-              </span> */}
-              {/* <div className="flex flex-row items-center space-x-1">
-                <a>Stephen</a>
-                <a>
-                  <MdOutlineKeyboardArrowDown />
-                </a>
-              </div> */}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <article
+          <article
         className={
           !sunmoon
             ? "hidden sm:hidden md:w-10/12 md:bg-[#F5F5F5] md:rounded-md md:px-1 md:py-1 md:mt-2 lg:hidden"
@@ -289,8 +272,59 @@ export default function Header(props) {
           <a className="w-24 grid place-content-center">
             <BsSearch className="w-full h-full text-sm" />
           </a>
+          <span className="w-1/3 ">
+            <article className="w-full flex flex-row items-center justify-between">
+              <a className="w-4">
+                {/* <BsSearch className="w-full h-full text-sm" /> */}
+              </a>
+
+              <div
+                onClick={(e) => handleSun(e)}
+                className={
+                  !sunmoon
+                    ? "w-auto border-2  border-black relative rounded-full change"
+                    : "w-auto border-2 border-white relative rounded-full changex"
+                }
+              >
+                <article className="w-full flex flex-row items-center  justify-between relative p-1 ">
+                  <button className="w-1/3 h-full ">
+                    <MdOutlineWbSunny
+                      className={
+                        sunmoon
+                          ? "w-full h-full text-2xl text-white"
+                          : "w-full h-full text-2xl text-black"
+                      }
+                    />
+                  </button>
+                  <button
+                    onClick={(e) => handleSun(e)}
+                    className={
+                      !sunmoon
+                        ? "rounded-full w-6 h-6 circle"
+                        : "rounded-full w-6 h-6 circlex"
+                    }
+                  ></button>
+
+                  <button className="w-1/3 h-full ">
+                    <BsMoon
+                      className={
+                        !sunmoon
+                          ? "w-full h-full text-2xl text-black"
+                          : "w-full h-full text-2xl text-white"
+                      }
+                    />
+                  </button>
+                </article>
+              </div>
+            </article>
+          </span>
         </div>
       </article>
+         
+        </div>
+      </section>
+
+      
       {/* tablet screen */}
 
       {/* small screen */}
