@@ -126,17 +126,17 @@ export default function Editors(props) {
         </article>
       </section>
       <div className="w-11/12 mt-4 ">
-        <article className="w-full grid gap-4 place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <article className="w-full grid gap-4 place-content-center sm:w-11/12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {alldata.length > 0 ? (
             alldata.map((item) => {
               return (
                 <section
-                  className="m-auto min-h-full w-full sm:m-auto sm:w-full md:m-auto md:w-full lg:w-80"
+                  className="m-auto min-h-full w-full place-content-center sm:m-auto sm:w-11/12 md:m-auto md:w-full lg:w-80"
                   onClick={() => handleClick(item.id)}
                   key={item.id}
                 >
                   <div className=" w-11/12 flex flex-row space-x-4 items-center p-1 sm:w-full sm:space-x-1 sm:flex sm:flex-row sm:items-center sm:p-1 md:w-full md:space-x-1 md:flex md:flex-row md:items-center md:p-1 lg:w-full lg:flex lg:flex-col lg:items-center lg:p-1">
-                    <section className="w-56 relative sm:w-56 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
+                    <section className="w-72 relative sm:w-72 sm:relative md:w-60  md:relative  lg:w-full lg:relative">
                       <img
                         src={item.thumbnail}
                         className="w-full h-24 sm:h-auto md:h-32 lg:h-auto"
