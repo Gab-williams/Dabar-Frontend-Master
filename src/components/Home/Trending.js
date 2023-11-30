@@ -59,97 +59,9 @@ export default function Trending(props) {
       fetchData();
 
   },[tendall])
-  // console.log(alldata)
+ 
 
-  // const arr = [
-  //   {
-  //     id: 1,
-  //     catgories: "finance",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picone,
-  //     heading: `payaza launches new crypto account and 
-  //           card for use in Nigeria`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 2,
-  //     catgories: "news",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: pictwo,
-  //     heading: `Federal Reserve Announces Interest Rate Hike citing
-  //           inflation concern`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 3,
-  //     catgories: "Automation",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picthree,
-  //     heading: `Federal Reserve Announces Interest Rate Hike citing
-  //           inflation concern`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 4,
-  //     catgories: "Lifestyle",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picfour,
-  //     heading: `Federal Reserve Announces Interest Rate Hike citing
-  //           inflation concern`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 5,
-  //     catgories: "Health & Fitness",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picfive,
-  //     heading: `Federal Reserve Announces Interest Rate Hike citing
-  //           inflation concern`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 6,
-  //     catgories: "LifeStyle",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picsix,
-  //     heading: `Federal Reserve Announces Interest Rate Hike citing
-  //           inflation concern`,
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
 
-  //   {
-  //     id: 7,
-  //     catgories: "Technology",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: picseven,
-  //     heading: "Tech Giants Apple and Amazon Beat Q3 Earning Expectations",
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  //   {
-  //     id: 8,
-  //     catgories: "Finance",
-  //     author: "alec whitten",
-  //     date: "1 jan 2023",
-  //     pic: piceight,
-  //     heading: "Tech Giants Apple and Amazon Beat Q3 Earning Expectations",
-  //     body: `Like to Know the secret of transforming a 
-  //           2-14 into Super Bowl winning Dynasty`,
-  //   },
-  // ];
   return (
     <div
       className={
@@ -174,7 +86,7 @@ export default function Trending(props) {
       </section>
       
       <div className="w-11/12 mt-4">
-        <article className="w-full grid gap-4 place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <article className="w-full grid gap-4 place-content-center sm:gap-y-0 sm:grid-cols-1 md:grid-cols-2 lg:gap-y-16 lg:grid-cols-3 xl:grid-cols-4">
           {alldata.length > 0 ? (
             alldata.map((item) => (
               <section
